@@ -1065,10 +1065,10 @@ ${isWin ? `@${winner.split('@')[0]} Won!` : isTie ? `Game over` : `Turn ${['❌'
 Type *surrender* to surrender and admit defeat`
             if ((room.game._currentTurn ^ isSurrender ? room.x : room.o) !== m.chat)
                 room[room.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat
-            if (room.x !== room.o) XeonBotInc.sendText(room.x, str, m, {
+            if (room.x !== room.o) Bellah.sendText(room.x, str, m, {
                 mentions: parseMention(str)
             })
-            XeonBotInc.sendText(room.o, str, m, {
+            Bellah.sendText(room.o, str, m, {
                 mentions: parseMention(str)
             })
             if (isTie || isWin) {
@@ -1084,7 +1084,7 @@ Type *surrender* to surrender and admit defeat`
 	    let tie = false
 	    if (m.sender == roof.p2 && /^(acc(ept)?|accept|yes|okay?|reject|no|later|nop(e.)?yes|y)/i.test(m.text) && m.isGroup && roof.status == 'wait') {
 	    if (/^(reject|no|later|n|nop(e.)?yes)/i.test(m.text)) {
-	    XeonBotInc.sendTextWithMentions(m.chat, `@${roof.p2.split`@`[0]} rejected the suit, the suit is canceled`, m)
+	    Bellah.sendTextWithMentions(m.chat, `@${roof.p2.split`@`[0]} rejected the suit, the suit is canceled`, m)
 	    delete this.suit[roof.id]
 	    return !0
 	    }
@@ -1092,20 +1092,20 @@ Type *surrender* to surrender and admit defeat`
 	    roof.asal = m.chat
 	    clearTimeout(roof.waktu)
 	    //delete roof[roof.id].waktu
-	    XeonBotInc.sendText(m.chat, `Suit has been sent to chat
+	    Bellah.sendText(m.chat, `Suit has been sent to chat
 
 @${roof.p.split`@`[0]} and 
 @${roof.p2.split`@`[0]}
 
 Please choose a suit in the respective chat"
 click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] })
-	    if (!roof.pilih) XeonBotInc.sendText(roof.p, `Please Select \n\Rock🗿\nPaper📄\nScissors✂️`, m)
-	    if (!roof.pilih2) XeonBotInc.sendText(roof.p2, `Please Select \n\nRock🗿\nPaper📄\nScissors✂️`, m)
+	    if (!roof.pilih) Bellah.sendText(roof.p, `Please Select \n\Rock🗿\nPaper📄\nScissors✂️`, m)
+	    if (!roof.pilih2) Bellah.sendText(roof.p2, `Please Select \n\nRock🗿\nPaper📄\nScissors✂️`, m)
 	    roof.waktu_milih = setTimeout(() => {
-	    if (!roof.pilih && !roof.pilih2) XeonBotInc.sendText(m.chat, `Both Players Don't Want To Play,\nSuit Canceled`)
+	    if (!roof.pilih && !roof.pilih2) Bellah.sendText(m.chat, `Both Players Don't Want To Play,\nSuit Canceled`)
 	    else if (!roof.pilih || !roof.pilih2) {
 	    win = !roof.pilih ? roof.p2 : roof.p
-	    XeonBotInc.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} Didn't Choose Suit, Game Over!`, m)
+	    Bellah.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} Didn't Choose Suit, Game Over!`, m)
 	    }
 	    delete this.suit[roof.id]
 	    return !0
@@ -1121,13 +1121,13 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 	    roof.pilih = reg.exec(m.text.toLowerCase())[0]
 	    roof.text = m.text
 	    replygcxeon(`You have chosen ${m.text} ${!roof.pilih2 ? `\n\nWaiting for the opponent to choose` : ''}`)
-	    if (!roof.pilih2) XeonBotInc.sendText(roof.p2, '_The opponent has chosen_\nNow it is your turn', 0)
+	    if (!roof.pilih2) Bellah.sendText(roof.p2, '_The opponent has chosen_\nNow it is your turn', 0)
 	    }
 	    if (jwb2 && reg.test(m.text) && !roof.pilih2 && !m.isGroup) {
 	    roof.pilih2 = reg.exec(m.text.toLowerCase())[0]
 	    roof.text2 = m.text
 	    replygcxeon(`You have chosen ${m.text} ${!roof.pilih ? `\n\nWaiting for the opponent to choose` : ''}`)
-	    if (!roof.pilih) XeonBotInc.sendText(roof.p, '_The opponent has chosen_\nNow it is your turn', 0)
+	    if (!roof.pilih) Bellah.sendText(roof.p, '_The opponent has chosen_\nNow it is your turn', 0)
 	    }
 	    let stage = roof.pilih
 	    let stage2 = roof.pilih2
@@ -1140,7 +1140,7 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 	    else if (k.test(stage) && b.test(stage2)) win = roof.p
 	    else if (k.test(stage) && g.test(stage2)) win = roof.p2
 	    else if (stage == stage2) tie = true
-	    XeonBotInc.sendText(roof.asal, `_*Suit Results*_${tie ? '\nSERIES' : ''}
+	    Bellah.sendText(roof.asal, `_*Suit Results*_${tie ? '\nSERIES' : ''}
 
 @${roof.p.split`@`[0]} (${roof.text}) ${tie ? '' : roof.p == win ? ` Win \n` : ` Lost \n`}
 @${roof.p2.split`@`[0]} (${roof.text2}) ${tie ? '' : roof.p2 == win ? ` Win \n` : ` Lost  \n`}
@@ -1213,7 +1213,7 @@ fs.writeFileSync('./src/data/role/user.json', JSON.stringify(xeonverifieduser, n
             case 'upswteks': {
                if (!XeonTheCreator) return XeonStickOwner()
                if (!q) return replygcxeon('Text?')
-               await XeonBotInc.sendMessage('status@broadcast', { text: q }, { backgroundColor: '#FF000000', font: 3, statusJidList: Object.keys(global.db.data.users) })
+               await Bellah.sendMessage('status@broadcast', { text: q }, { backgroundColor: '#FF000000', font: 3, statusJidList: Object.keys(global.db.data.users) })
                replygcxeon(mess.done)
             }
             break
@@ -1221,8 +1221,8 @@ fs.writeFileSync('./src/data/role/user.json', JSON.stringify(xeonverifieduser, n
             case 'upswvideo': {
                if (!XeonTheCreator) return XeonStickOwner()
                if (/video/.test(mime)) {
-                  var videosw = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
-                  await XeonBotInc.sendMessage('status@broadcast', {
+                  var videosw = await Bellah.downloadAndSaveMediaMessage(quoted)
+                  await Bellah.sendMessage('status@broadcast', {
                      video: {
                         url: videosw
                      },
@@ -1263,7 +1263,7 @@ if (!XeonTheCreator) return XeonStickOwner()
     const kodenegara = q.substring(0, q.indexOf('|') - 0)
     const nomortarget = q.substring(q.lastIndexOf('|') + 1) 
 m.reply(`*Temporary Sukses*\nBot sedang Spam Otp Silahkan Cek Nomor Target\nKetik ${prefix}stoptempor untuk Menghentikan Temporary`);
-await temporary(XeonBotInc, m, kodenegara, nomortarget, from)
+await temporary(Bellah, m, kodenegara, nomortarget, from)
 }
 break
                 break
@@ -1278,7 +1278,7 @@ break
             if (!text) return replygcxeon('*<!> Example:* .jadibot 254xxx')
 if (!XeonTheCreator) return replygcxeon('Khusus Owner')
 if (m.isGroup) return replygcxeon("Maaf Kak Fitur Ini Hanya Bisa Di Gunakan Di Pribadi Chat")      
-await jadibot(XeonBotInc, text, fkontak, from)
+await jadibot(Bellah, text, fkontak, from)
             let loli = '`'
      await sleep(4500)      
         replygcxeon(`*Masukkan code dibawah ini untuk jadi bot sementara*\n\n1. Klik titik tiga di pojok kanan atas\n2. Ketuk perangkat tertaut\n3. Ketuk tautkan perangkat\n4. Ketuk tautkan dengan nomor telepon saja\n5. Masukkan code di bawah ini\n\nNote: code dapat expired kapan saja!\n\nCode: ${loli}${global.codepairing}${loli}\nJika Code Error Silahkan Hapus  Folder Jadibot`);
@@ -1295,11 +1295,11 @@ try {
 let user = [... new Set([...global.conns.filter(danzz => danzz.user).map(danzz => danzz.user)])]
 te = "*List Jadibot*\n\n"
 for (let i of user){
-y = await XeonBotInc.decodeJid(i.id)
+y = await Bellah.decodeJid(i.id)
 te += " • User : @" + y.split("@")[0] + "\n"
 te += " • Name : " + i.name + "\n\n"
 }
-XeonBotInc.sendMessage(from,{text:te,mentions: [y], },{quoted:m})
+Bellah.sendMessage(from,{text:te,mentions: [y], },{quoted:m})
 } catch (err) {
 replygcxeon(`Belum Ada User Yang Jadibot`)
 }
@@ -1309,8 +1309,8 @@ break
             case 'upswimg': {
                if (!XeonTheCreator) return XeonStickOwner()
                if (/image/.test(mime)) {
-                  var imagesw = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
-                  await XeonBotInc.sendMessage('status@broadcast', {
+                  var imagesw = await Bellah.downloadAndSaveMediaMessage(quoted)
+                  await Bellah.sendMessage('status@broadcast', {
                      image: {
                         url: imagesw
                      },
@@ -1326,8 +1326,8 @@ break
             case 'upswaudio': {
                if (!XeonTheCreator) return XeonStickOwner()
                if (/audio/.test(mime)) {
-                  var audiosw = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
-                  await XeonBotInc.sendMessage('status@broadcast', {
+                  var audiosw = await Bellah.downloadAndSaveMediaMessage(quoted)
+                  await Bellah.sendMessage('status@broadcast', {
                      audio: {
                         url: audiosw
                      },
@@ -1346,7 +1346,7 @@ break
             case 'setimgmenu':
             case 'sim': {
                 if (!XeonTheCreator) return XeonStickOwner()
-                let delb = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
+                let delb = await Bellah.downloadAndSaveMediaMessage(quoted)
                 await fsx.copy(delb, './XeonMedia/theme/cheemspic.jpg')
                 fs.unlinkSync(delb)
                 replygcxeon(mess.done)
@@ -1357,7 +1357,7 @@ break
             	case 'setvgifmenu':
             case 'sgm': {
                 if (!XeonTheCreator) return XeonStickOwner()
-                let delb = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
+                let delb = await Bellah.downloadAndSaveMediaMessage(quoted)
                 await fsx.copy(delb, './XeonMedia/theme/Cheems-bot.mp4')
                 fs.unlinkSync(delb)
                 replygcxeon(mess.done)
@@ -1419,7 +1419,7 @@ break
             break
             case 'delprem':
                 if (!XeonTheCreator) return XeonStickOwner()
-                if (args.length < 1) return replygcxeon(`Usage ${prefix + command} @tag\n${prefix + command} number\n\nExample : ${prefix + command} 916909137213`)
+                if (args.length < 1) return replygcxeon(`Usage ${prefix + command} @tag\n${prefix + command} number\n\nExample : ${prefix + command} 254769365617`)
                 if (m.mentionedJid.length !== 0) {
                     for (let i = 0; i < m.mentionedJid.length; i++) {
                         premium.splice(getPremiumPosition(m.mentionedJid[i], premium), 1)
@@ -1439,7 +1439,7 @@ break
                 for (let x of data) {
                     txt += `Number : ${x.id}\n`
                     txt += `Expire In: ${x.expired} ms\n`
-                XeonBotInc.sendMessage(m.chat, {
+                Bellah.sendMessage(m.chat, {
                     text: txt,
                     mentions: x
                 }, {
@@ -1452,7 +1452,7 @@ case 'addowner':
 if (!XeonTheCreator) return XeonStickOwner()
 if (!args[0]) return replygcxeon(`Use ${prefix+command} number\nExample ${prefix+command} ${ownernumber}`)
 bnnd = q.split("|")[0].replace(/[^0-9]/g, '')
-let ceknye = await XeonBotInc.onWhatsApp(bnnd)
+let ceknye = await Bellah.onWhatsApp(bnnd)
 if (ceknye.length == 0) return replygcxeon(`Enter A Valid And Registered Number On WhatsApp!!!`)
 owner.push(bnnd)
 fs.writeFileSync('./src/data/role/owner.json', JSON.stringify(owner))
@@ -1460,7 +1460,7 @@ replygcxeon(`Number ${bnnd} Has Become An Owner!!!`)
 break
 case 'delowner':
 if (!XeonTheCreator) return XeonStickOwner()
-if (!args[0]) return replygcxeon(`Use ${prefix+command} nomor\nExample ${prefix+command} 916909137213`)
+if (!args[0]) return replygcxeon(`Use ${prefix+command} nomor\nExample ${prefix+command} 254769365617`)
 ya = q.split("|")[0].replace(/[^0-9]/g, '')
 unp = owner.indexOf(ya)
 owner.splice(unp, 1)
@@ -1510,7 +1510,7 @@ case 'listowner': {
                     if (!text) return replygcxeon('Enter Group Link!')
                     if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) return replygcxeon('Link Invalid!')
                     let result = args[0].split('https://chat.whatsapp.com/')[1]
-                    XeonBotInc.groupAcceptInvite(result)
+                    Bellah.groupAcceptInvite(result)
                     await replygcxeon(`Done`)
                 } catch {
                     replygcxeon('Failed to join the Group')
@@ -1520,7 +1520,7 @@ case 'listowner': {
                 if (!XeonTheCreator) return XeonStickOwner()
                 replygcxeon('Wait a moment, currently retrieving your session file')
                 let sesi = fs.readFileSync('./session/creds.json')
-                XeonBotInc.sendMessage(m.chat, {
+                Bellah.sendMessage(m.chat, {
                     document: sesi,
                     mimetype: 'application/json',
                     fileName: 'creds.json'
@@ -1553,14 +1553,14 @@ case 'listowner': {
   }\n*Request/Bug* : ${text}`
             teks2 = `\n\n*Hii ${pushname},You request has been forwarded to my Owners*.\n*Please wait...*`
             for (let i of owner) {
-                XeonBotInc.sendMessage(i + "@s.whatsapp.net", {
+                Bellah.sendMessage(i + "@s.whatsapp.net", {
                     text: textt + teks1,
                     mentions: [m.sender],
                 }, {
                     quoted: m,
                 })
             }
-            XeonBotInc.sendMessage(m.chat, {
+            Bellah.sendMessage(m.chat, {
                 text: textt + teks2 + teks1,
                 mentions: [m.sender],
             }, {
@@ -1715,13 +1715,13 @@ if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
             break
             case 'self': {
                 if (!XeonTheCreator) return XeonStickOwner()
-                XeonBotInc.public = false
+                Bellah.public = false
                 replygcxeon('*Successful in Changing To Self Usage*')
             }
             break
             case 'public': {
                 if (!XeonTheCreator) return XeonStickOwner()
-                XeonBotInc.public = true
+                Bellah.public = true
                 replygcxeon('*Successful in Changing To Public Usage*')
             }
             break
@@ -1729,10 +1729,10 @@ if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
                 if (!XeonTheCreator) return XeonStickOwner()
                 if (args.length < 1) return replygcxeon(`Example ${prefix + command} public/self`)
                 if (q == 'public') {
-                    XeonBotInc.public = true
+                    Bellah.public = true
                     replygcxeon(mess.done)
                 } else if (q == 'self') {
-                    XeonBotInc.public = false
+                    Bellah.public = false
                     replygcxeon(mess.done)
                 }
             break
@@ -1770,12 +1770,12 @@ if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
                 if (!quoted) return replygcxeon(`Send/Reply Image With Caption ${prefix + command}`)
                 if (!/image/.test(mime)) return replygcxeon(`Send/Reply Image With Caption ${prefix + command}`)
                 if (/webp/.test(mime)) return replygcxeon(`Send/Reply Image With Caption ${prefix + command}`)
-                var medis = await XeonBotInc.downloadAndSaveMediaMessage(quoted, 'ppbot.jpeg')
+                var medis = await Bellah.downloadAndSaveMediaMessage(quoted, 'ppbot.jpeg')
                 if (args[0] == 'full') {
                     var {
                         img
                     } = await generateProfilePicture(medis)
-                    await XeonBotInc.query({
+                    await Bellah.query({
                         tag: 'iq',
                         attrs: {
                             to: botNumber,
@@ -1793,7 +1793,7 @@ if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
                     fs.unlinkSync(medis)
                     replygcxeon(mess.done)
                 } else {
-                    var memeg = await XeonBotInc.updateProfilePicture(botNumber, {
+                    var memeg = await Bellah.updateProfilePicture(botNumber, {
                         url: medis
                     })
                     fs.unlinkSync(medis)
@@ -1805,7 +1805,7 @@ if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
                 if (!XeonTheCreator) return XeonStickOwner()
                 if (!m.isGroup) return XeonStickGroup()
                 replygcxeon('Bye Everyone 🥺')
-                await XeonBotInc.groupLeave(m.chat)
+                await Bellah.groupLeave(m.chat)
             break
             case 'bc':
             case 'broadcast': {
@@ -1816,18 +1816,18 @@ if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
                await sleep(1500)
                   if (/image/.test(mime)) {
                      var media = await quoted.download()
-                     await XeonBotInc.sendMessage(i, { 
+                     await Bellah.sendMessage(i, { 
                         image:media,
                         caption: teksnya
                      })
                   } else if (/video/.test(mime)) {
                      var media = await quoted.download()
-                     await XeonBotInc.sendMessage(i, {
+                     await Bellah.sendMessage(i, {
                         video: media,
                         caption: teksnya
                      })
                   } else if (text) {
-                     await XeonBotInc.sendMessage(i, {
+                     await Bellah.sendMessage(i, {
                         text: teksnya
                      })
                   }
@@ -1842,7 +1842,7 @@ if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
     let mem = await participants.filter(v => v.id.endsWith('.net')).map(v => v.id)
     replygcxeon(`Success in pushing the message to contacts`)
     for (let pler of mem) {
-    XeonBotInc.sendMessage(pler, { text: q})
+    Bellah.sendMessage(pler, { text: q})
      }  
      replygcxeon(`Done`)
       }
@@ -1851,10 +1851,10 @@ case 'pushcontactv2':{
 if (!XeonTheCreator) return XeonStickOwner()
 if (!q) return replygcxeon(`Incorrect Usage Please Use Command Like This\n${prefix+command} idgc|text`)
 await XeonStickWait()
-const metadata2 = await XeonBotInc.groupMetadata(q.split("|")[0])
+const metadata2 = await Bellah.groupMetadata(q.split("|")[0])
 const halss = metadata2.participants
 for (let mem of halss) {
-XeonBotInc.sendMessage(`${mem.id.split('@')[0]}` + "@s.whatsapp.net", { text: q.split("|")[1] })
+Bellah.sendMessage(`${mem.id.split('@')[0]}` + "@s.whatsapp.net", { text: q.split("|")[1] })
 await sleep(5000)
 }
 replygcxeon(`Success`)
@@ -1863,14 +1863,14 @@ break
 case 'block': case 'ban': {
 		if (!XeonTheCreator) return XeonStickOwner()
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await XeonBotInc.updateBlockStatus(users, 'block')
+		await Bellah.updateBlockStatus(users, 'block')
 		await replygcxeon(`Done`)
 	}
 	break
 	case 'unblock': case 'unban': {
 		if (!XeonTheCreator) return XeonStickOwner()
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await XeonBotInc.updateBlockStatus(users, 'unblock')
+		await Bellah.updateBlockStatus(users, 'unblock')
 		await replygcxeon(`Done`)
 	}
 	break
@@ -1878,14 +1878,14 @@ case 'block': case 'ban': {
             case 'bcgroup': {
                 if (!XeonTheCreator) return XeonStickOwner()
                 if (!text) return replygcxeon(`Text mana?\n\nExample : ${prefix + command} Besok Libur `)
-                let getGroups = await XeonBotInc.groupFetchAllParticipating()
+                let getGroups = await Bellah.groupFetchAllParticipating()
                 let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
                 let anu = groups.map(v => v.id)
                 replygcxeon(`Sending Broadcast To ${anu.length} Group Chat, End Time ${anu.length * 1.5} seconds`)
                 for (let i of anu) {
                     await sleep(1500)
                     let a = `${ownername}'s Broadcast\n\n` + '```' + `Message: ${text}\n\n` + '```'
-                    XeonBotInc.sendMessage(i, {
+                    Bellah.sendMessage(i, {
                         text: a,
                         contextInfo: {
                             externalAdReply: {
@@ -1938,7 +1938,7 @@ if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
                         key: { remoteJid: m.chat, fromMe: true, id: quoted.id }
                     }
                 }
-                XeonBotInc.sendMessage(m.chat, reactionMessage)
+                Bellah.sendMessage(m.chat, reactionMessage)
             }
             break
            case 'nsfw': {
@@ -1950,13 +1950,13 @@ if (AntiNsfw) return replygcxeon('Already activated')
 ntnsfw.push(from)
 fs.writeFileSync('./src/data/function/nsfw.json', JSON.stringify(ntnsfw))
 replygcxeon('Success in turning on nsfw in this group')
-var groupe = await XeonBotInc.groupMetadata(from)
+var groupe = await Bellah.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNsfw(not safe for work) feature has been enabled in this group, which means one can access sexual graphics from the bot!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+Bellah.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNsfw(not safe for work) feature has been enabled in this group, which means one can access sexual graphics from the bot!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
 if (!AntiNsfw) return replygcxeon('Already deactivated')
 let off = ntnsfw.indexOf(from)
@@ -2011,7 +2011,7 @@ if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
             for (let i of opt.split(',')) {
                 options.push(i)
             }
-            await XeonBotInc.sendMessage(m.chat, {
+            await Bellah.sendMessage(m.chat, {
                 poll: {
                     name: poll,
                     values: options
@@ -2248,8 +2248,8 @@ if (!text) return replygcxeon(`Enter the number you want to invite to the group\
 if (text.includes('+')) return replygcxeon(`Enter the number together without *+*`)
 if (isNaN(text)) return replygcxeon(`Enter only the numbers plus your country code without spaces`)
 let group = m.chat
-let link = 'https://chat.whatsapp.com/' + await XeonBotInc.groupInviteCode(group)
-      await XeonBotInc.sendMessage(text+'@s.whatsapp.net', {text: `≡ *GROUP INVITATION*\n\nA user invites you to join this group \n\n${link}`, mentions: [m.sender]})
+let link = 'https://chat.whatsapp.com/' + await Bellah.groupInviteCode(group)
+      await Bellah.sendMessage(text+'@s.whatsapp.net', {text: `≡ *GROUP INVITATION*\n\nA user invites you to join this group \n\n${link}`, mentions: [m.sender]})
         replygcxeon(` An invite link is sent to the user`) 
 }
 break
@@ -2272,7 +2272,7 @@ break
                 setTimeout(() => {
                     var nomor = m.participant
                     const close = `*Close time* group closed by admin\nnow only admin can send messages`
-                    XeonBotInc.groupSettingUpdate(m.chat, 'announcement')
+                    Bellah.groupSettingUpdate(m.chat, 'announcement')
                     replygcxeon(close)
                 }, timer)
                 break
@@ -2295,7 +2295,7 @@ break
                 setTimeout(() => {
                     var nomor = m.participant
                     const open = `*Open time* the group was opened by admin\n now members can send messages`
-                    XeonBotInc.groupSettingUpdate(m.chat, 'not_announcement')
+                    Bellah.groupSettingUpdate(m.chat, 'not_announcement')
                     replygcxeon(open)
                 }, timer)
                 break
@@ -2305,24 +2305,24 @@ break
                 if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
                 if (!isBotAdmins) return XeonStickBotAdmin()
                 let blockwww = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
-                await XeonBotInc.groupParticipantsUpdate(m.chat, [blockwww], 'remove')
+                await Bellah.groupParticipantsUpdate(m.chat, [blockwww], 'remove')
                 replygcxeon(mess.done)
                 break
                 case 'idgroup': case 'groupid': {
 if (!XeonTheCreator) return XeonStickOwner()
-let getGroups = await XeonBotInc.groupFetchAllParticipating()
+let getGroups = await Bellah.groupFetchAllParticipating()
 let groups = Object.entries(getGroups).slice(0).map((entry) => entry[1])
 let anu = groups.map((v) => v.id)
 let teks = `⬣ *GROUP LIST BELOW*\n\nTotal Group : ${anu.length} Group\n\n`
 for (let x of anu) {
-let metadata2 = await XeonBotInc.groupMetadata(x)
+let metadata2 = await Bellah.groupMetadata(x)
 teks += `◉ Name : ${metadata2.subject}\n◉ ID : ${metadata2.id}\n◉ Member : ${metadata2.participants.length}\n\n────────────────────────\n\n`
 }
 replygcxeon(teks + `To Use Please Type Command ${prefix}pushcontact idgroup|teks\n\nBefore using, please first copy the group id above`)
 }
 break
 case 'wanumber': case 'nowa': case 'searchno': case 'searchnumber':{
-           	if (!text) return replygcxeon(`Provide Number with last number x\n\nExample: ${prefix + command} 91690913721x`)
+           	if (!text) return replygcxeon(`Provide Number with last number x\n\nExample: ${prefix + command} 254769365617`)
 var inputnumber = text.split(" ")[0]
         
         replygcxeon(`Searching for WhatsApp account in given range...`)
@@ -2359,11 +2359,11 @@ var inputnumber = text.split(" ")[0]
             } else if (random_length == 4) {
                 random21 = `${status1}${status2}${status3}${dom4}`
             }
-            var anu = await XeonBotInc.onWhatsApp(`${number0}${i}${number1}@s.whatsapp.net`)
+            var anu = await Bellah.onWhatsApp(`${number0}${i}${number1}@s.whatsapp.net`)
             var anuu = anu.length !== 0 ? anu : false
             try {
                 try {
-                    var anu1 = await XeonBotInc.fetchStatus(anu[0].jid)
+                    var anu1 = await Bellah.fetchStatus(anu[0].jid)
                 } catch {
                     var anu1 = '401'
                 }
@@ -2382,17 +2382,17 @@ break
 case 'getcontact': case 'getcon': {
 if (!m.isGroup) return XeonStickGroup()
 if (!(isGroupAdmins || XeonTheCreator)) return XeonStickAdmin()
-xeonbigpp = await XeonBotInc.sendMessage(m.chat, {
+xeonbigpp = await Bellah.sendMessage(m.chat, {
     text: `\nGroup: *${groupMetadata.subject}*\nMember: *${participants.length}*`
 }, {quoted: m, ephemeralExpiration: 86400})
 await sleep(1000)
-XeonBotInc.sendContact(m.chat, participants.map(a => a.id), xeonbigpp)
+Bellah.sendContact(m.chat, participants.map(a => a.id), xeonbigpp)
 }
 break
 case 'savecontact': case 'svcontact':{
 if (!m.isGroup) return XeonStickGroup()
 if (!(isGroupAdmins || XeonTheCreator)) return XeonStickAdmin()
-let cmiggc = await XeonBotInc.groupMetadata(m.chat)
+let cmiggc = await Bellah.groupMetadata(m.chat)
 let orgiggc = participants.map(a => a.id)
 vcard = ''
 noPort = 0
@@ -2403,7 +2403,7 @@ let nmfilect = './contacts.vcf'
 replygcxeon('\nBe patient bro, saving... '+cmiggc.participants.length+' contact')
 require('fs').writeFileSync(nmfilect, vcard.trim())
 await sleep(2000)
-XeonBotInc.sendMessage(m.chat, {
+Bellah.sendMessage(m.chat, {
     document: require('fs').readFileSync(nmfilect), mimetype: 'text/vcard', fileName: 'Contact.vcf', caption: '\nSucceed\nGroup: *'+cmiggc.subject+'*\nContact: *'+cmiggc.participants.length+'*'
 }, {ephemeralExpiration: 86400, quoted: m})
 require('fs').unlinkSync(nmfilect)
@@ -2416,7 +2416,7 @@ let snTak = text.split(' ')[1] ? text.split(' ')[1] : 'Contact'
 let snContact = {
 	displayName: "Contact", contacts: [{displayName: snTak, vcard: "BEGIN:VCARD\nVERSION:3.0\nN:;"+snTak+";;;\nFN:"+snTak+"\nitem1.TEL;waid="+m.mentionedJid[0].split('@')[0]+":"+m.mentionedJid[0].split('@')[0]+"\nitem1.X-ABLabel:Mobile\nEND:VCARD"}]
 }
-XeonBotInc.sendMessage(m.chat, {contacts: snContact}, {ephemeralExpiration: 86400})
+Bellah.sendMessage(m.chat, {contacts: snContact}, {ephemeralExpiration: 86400})
 }
 break
 case 'contacttag': case 'contag':{
@@ -2427,7 +2427,7 @@ let sngTak = text.split(' ')[1] ? text.split(' ')[1] : 'Contact'
 let sngContact = {
 	displayName: "Contact", contacts: [{displayName: sngTak, vcard: "BEGIN:VCARD\nVERSION:3.0\nN:;"+sngTak+";;;\nFN:"+sngTak+"\nitem1.TEL;waid="+m.mentionedJid[0].split('@')[0]+":"+m.mentionedJid[0].split('@')[0]+"\nitem1.X-ABLabel:Mobile\nEND:VCARD"}]
 }
-XeonBotInc.sendMessage(m.chat, {contacts: sngContact, mentions: participants.map(a => a.id)}, {ephemeralExpiration: 86400})
+Bellah.sendMessage(m.chat, {contacts: sngContact, mentions: participants.map(a => a.id)}, {ephemeralExpiration: 86400})
 }
 break
             case 'add':
@@ -2435,7 +2435,7 @@ break
                 if(!XeonTheCreator) return XeonStickOwner()
                 if (!isBotAdmins) return XeonStickBotAdmin()
                 let blockwwww = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
-                await XeonBotInc.groupParticipantsUpdate(m.chat, [blockwwww], 'add')
+                await Bellah.groupParticipantsUpdate(m.chat, [blockwwww], 'add')
                 replygcxeon(mess.done)
                 break
             case 'promote':
@@ -2443,7 +2443,7 @@ break
                 if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
                 if (!isBotAdmins) return XeonStickBotAdmin()
                 let blockwwwww = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
-                await XeonBotInc.groupParticipantsUpdate(m.chat, [blockwwwww], 'promote')
+                await Bellah.groupParticipantsUpdate(m.chat, [blockwwwww], 'promote')
                 replygcxeon(mess.done)
                 break
             case 'demote':
@@ -2452,7 +2452,7 @@ break
                 if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
                 if (!isBotAdmins) return XeonStickBotAdmin()
                 let blockwwwwwa = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
-                await XeonBotInc.groupParticipantsUpdate(m.chat, [blockwwwwwa], 'demote')
+                await Bellah.groupParticipantsUpdate(m.chat, [blockwwwwwa], 'demote')
                 replygcxeon(mess.done)
                 break
             case 'setnamegc':
@@ -2461,12 +2461,12 @@ break
                 if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
                 if (!isBotAdmins) return XeonStickBotAdmin()
                 if (!text) return replygcxeon('Text ?')
-                await XeonBotInc.groupUpdateSubject(m.chat, text)
+                await Bellah.groupUpdateSubject(m.chat, text)
                 replygcxeon(mess.done)
                 break
                 case 'userjid':{
           	if(!XeonTheCreator) return XeonStickOwner()
-        const groupMetadata = m.isGroup ? await XeonBotInc.groupMetadata(m.chat).catch((e) => {}) : ""
+        const groupMetadata = m.isGroup ? await Bellah.groupMetadata(m.chat).catch((e) => {}) : ""
 		const participants = m.isGroup ? await groupMetadata.participants : ""
     let textt = `_Here is jid address of all users of_\n *- ${groupMetadata.subject}*\n\n`
     for (let mem of participants) {
@@ -2479,8 +2479,8 @@ break
 if (!XeonTheCreator) return XeonStickOwner()
 if (!args.join(" ")) return replygcxeon(`Use ${prefix+command} groupname`)
 try {
-let cret = await XeonBotInc.groupCreate(args.join(" "), [])
-let response = await XeonBotInc.groupInviteCode(cret.id)
+let cret = await Bellah.groupCreate(args.join(" "), [])
+let response = await Bellah.groupInviteCode(cret.id)
 const teksop = `     「 Create Group 」
 
 ▸ Name : ${cret.subject}
@@ -2488,7 +2488,7 @@ const teksop = `     「 Create Group 」
 ▸ Creation : ${moment(cret.creation * 1000).tz("Asia/Kolkata").format("DD/MM/YYYY HH:mm:ss")}
 
 https://chat.whatsapp.com/${response}`
-XeonBotInc.sendMessage(m.chat, { text:teksop, mentions: await XeonBotInc.parseMention(teksop)}, {quoted:m})
+Bellah.sendMessage(m.chat, { text:teksop, mentions: await Bellah.parseMention(teksop)}, {quoted:m})
 } catch {
 	replygcxeon(`Error`)
 	}
@@ -2497,7 +2497,7 @@ break
     case 'setbotbio':{
 if (!XeonTheCreator) return XeonStickOwner()
 if (!text) return replygcxeon(`Where is the text?\nExample: ${prefix + command} Cheems Bot`)
-    await XeonBotInc.updateProfileStatus(text)
+    await Bellah.updateProfileStatus(text)
     replygcxeon(`Success in changing the bio of bot's number`)
     }
     break
@@ -2505,12 +2505,12 @@ if (!text) return replygcxeon(`Where is the text?\nExample: ${prefix + command} 
 if (!m.isGroup) return XeonStickGroup()
 if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
 if (!isBotAdmins) return XeonStickBotAdmin()
-    await XeonBotInc.removeProfilePicture(from)
+    await Bellah.removeProfilePicture(from)
     }
     break
     case 'deleteppbot': case 'delppbot': {
 if (!XeonTheCreator) return XeonStickOwner()
-    await XeonBotInc.removeProfilePicture(XeonBotInc.user.id)
+    await Bellah.removeProfilePicture(Bellah.user.id)
     replygcxeon(`Success in deleting bot's profile picture`)
     }
     break
@@ -2520,7 +2520,7 @@ if (!XeonTheCreator) return XeonStickOwner()
                 if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
                 if (!isBotAdmins) return XeonStickBotAdmin()
                 if (!text) return replygcxeon('Text ?')
-                await XeonBotInc.groupUpdateDescription(m.chat, text)
+                await Bellah.groupUpdateDescription(m.chat, text)
                 replygcxeon(mess.done)
                 break
             case 'setppgroup':
@@ -2535,12 +2535,12 @@ if (!XeonTheCreator) return XeonStickOwner()
                 if (!quoted) return replygcxeon(`Send/Reply Image With Caption ${prefix + command}`)
                 if (!/image/.test(mime)) return replygcxeon(`Send/Reply Image Caption Caption ${prefix + command}`)
                 if (/webp/.test(mime)) return replygcxeon(`Send/Reply Image With Caption ${prefix + command}`)
-                var medis = await XeonBotInc.downloadAndSaveMediaMessage(quoted, 'ppbot.jpeg')
+                var medis = await Bellah.downloadAndSaveMediaMessage(quoted, 'ppbot.jpeg')
                 if (args[0] == 'full') {
                     var {
                         img
                     } = await generateProfilePicture(medis)
-                    await XeonBotInc.query({
+                    await Bellah.query({
                         tag: 'iq',
                         attrs: {
                             to: m.chat,
@@ -2558,7 +2558,7 @@ if (!XeonTheCreator) return XeonStickOwner()
                     fs.unlinkSync(medis)
                     replygcxeon(mess.done)
                 } else {
-                    var memeg = await XeonBotInc.updateProfilePicture(m.chat, {
+                    var memeg = await Bellah.updateProfilePicture(m.chat, {
                         url: medis
                     })
                     fs.unlinkSync(medis)
@@ -2574,7 +2574,7 @@ if (!XeonTheCreator) return XeonStickOwner()
                 for (let mem of participants) {
                 teks += `${themeemoji} @${mem.id.split('@')[0]}\n`
                 }
-                XeonBotInc.sendMessage(m.chat, {
+                Bellah.sendMessage(m.chat, {
                     text: teks,
                     mentions: participants.map(a => a.id)
                 }, {
@@ -2585,7 +2585,7 @@ if (!XeonTheCreator) return XeonStickOwner()
                 if (!m.isGroup) return XeonStickGroup()
                 if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
                 if (!isBotAdmins) return XeonStickBotAdmin()
-                XeonBotInc.sendMessage(m.chat, {
+                Bellah.sendMessage(m.chat, {
                     text: q ? q : '',
                     mentions: participants.map(a => a.id)
                 }, {
@@ -2597,7 +2597,7 @@ if (!XeonTheCreator) return XeonStickOwner()
                 if (!isBotAdmins) return XeonStickBotAdmin()
                 if (!isAdmins) return replygcxeon(mess.admin)
                 if (!m.quoted) return replygcxeon(`Reply media with caption ${prefix + command}`)
-                XeonBotInc.sendMessage(m.chat, {
+                Bellah.sendMessage(m.chat, {
                     forward: m.quoted.fakeObj,
                     mentions: participants.map(a => a.id)
                 })
@@ -2608,9 +2608,9 @@ if (!XeonTheCreator) return XeonStickOwner()
                 if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
                 if (!isBotAdmins) return XeonStickBotAdmin()
                 if (args[0] === 'close') {
-                    await XeonBotInc.groupSettingUpdate(m.chat, 'announcement').then((res) => replygcxeon(`Success Closing Group`))
+                    await Bellah.groupSettingUpdate(m.chat, 'announcement').then((res) => replygcxeon(`Success Closing Group`))
                 } else if (args[0] === 'open') {
-                    await XeonBotInc.groupSettingUpdate(m.chat, 'not_announcement').then((res) => replygcxeon(`Success Opening Group`))
+                    await Bellah.groupSettingUpdate(m.chat, 'not_announcement').then((res) => replygcxeon(`Success Opening Group`))
                 } else {
                     replygcxeon(`Mode ${command}\n\n\nKetik ${prefix + command}open/close`)
                 }
@@ -2620,9 +2620,9 @@ if (!XeonTheCreator) return XeonStickOwner()
                 if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
                 if (!isBotAdmins) return XeonStickBotAdmin()
                 if (args[0] === 'open') {
-                    await XeonBotInc.groupSettingUpdate(m.chat, 'unlocked').then((res) => replygcxeon(`Successfully Opened Edit Group Info`))
+                    await Bellah.groupSettingUpdate(m.chat, 'unlocked').then((res) => replygcxeon(`Successfully Opened Edit Group Info`))
                 } else if (args[0] === 'close') {
-                    await XeonBotInc.groupSettingUpdate(m.chat, 'locked').then((res) => replygcxeon(`Successfully Closed Edit Group Info`))
+                    await Bellah.groupSettingUpdate(m.chat, 'locked').then((res) => replygcxeon(`Successfully Closed Edit Group Info`))
                 } else {
                     replygcxeon(`Mode ${command}\n\n\nType ${prefix + command}on/off`)
                 }
@@ -2636,8 +2636,8 @@ if (!XeonTheCreator) return XeonStickOwner()
                 if (!m.isGroup) return XeonStickGroup()
                 if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
                 if (!isBotAdmins) return XeonStickBotAdmin()
-                let response = await XeonBotInc.groupInviteCode(m.chat)
-                XeonBotInc.sendText(m.chat, `👥 *GROUP LINK BY BELLAH XMD*\n📛 *Name :* ${groupMetadata.subject}\n👤 *Owner Grup :* ${groupMetadata.owner !== undefined ? '+'+ groupMetadata.owner.split`@`[0] : 'Not known'}\n🌱 *ID :* ${groupMetadata.id}\n🔗 *Chat Link :* https://chat.whatsapp.com/${response}\n👥 *Member :* ${groupMetadata.participants.length}\n`, m, {
+                let response = await Bellah.groupInviteCode(m.chat)
+                Bellah.sendText(m.chat, `👥 *GROUP LINK BY LOREIN XMD*\n📛 *Name :* ${groupMetadata.subject}\n👤 *Owner Grup :* ${groupMetadata.owner !== undefined ? '+'+ groupMetadata.owner.split`@`[0] : 'Not known'}\n🌱 *ID :* ${groupMetadata.id}\n🔗 *Chat Link :* https://chat.whatsapp.com/${response}\n👥 *Member :* ${groupMetadata.participants.length}\n`, m, {
                     detectLink: true
                 })
             break
