@@ -2917,7 +2917,7 @@ break
                             showAdAttribution: true,
                             title: botname,
                             body: ownername,
-                            thumbnailUrl: '',
+                            thumbnailUrl: 'https://files.catbox.moe/zsoxyf.jpg',
                             sourceUrl: wagc,
                             mediaType: 1,
                             renderLargerThumbnail: true
@@ -2962,7 +2962,7 @@ break
                                 showAdAttribution: true,
                                 title: botname,
                                 body: ownername,
-                                thumbnailUrl: 'https://telegra.ph/file/6a9ae040c7bcfa5bd0656.jpg',
+                                thumbnailUrl: 'https://files.catbox.moe/zsoxyf.jpg',
                                 sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
@@ -2978,7 +2978,7 @@ break
                                 showAdAttribution: true,
                                 title: botname,
                                 body: ownername,
-                                thumbnailUrl: 'https://telegra.ph/file/6a9ae040c7bcfa5bd0656.jpg',
+                                thumbnailUrl: 'https://files.catbox.moe/zsoxyf.jpg',
                                 sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
@@ -2992,14 +2992,14 @@ break
             break
             case 'runtime':
                 let pinga = `Bot Have Been Running For ${runtime(process.uptime())}`
-                XeonBotInc.sendMessage(m.chat, {
+                Bellah.sendMessage(m.chat, {
                     text: pinga,
                     contextInfo: {
                         externalAdReply: {
                             showAdAttribution: true,
                             title: botname,
                             body: ownername,
-                            thumbnailUrl: 'https://telegra.ph/file/6a9ae040c7bcfa5bd0656.jpg',
+                            thumbnailUrl: 'https://files.catbox.moe/zsoxyf.jpg',
                             sourceUrl: wagc,
                             mediaType: 1,
                             renderLargerThumbnail: true
@@ -3072,7 +3072,7 @@ mentionedJid:[sender],
 }
 break
             case 'owner': {
-                XeonBotInc.sendMessage(from, {
+                Bellah.sendMessage(from, {
                     contacts: {
                         displayName: `${list.length} Contact`,
                         contacts: list
@@ -3087,11 +3087,11 @@ case 's': case 'sticker': case 'stiker': {
 if (!quoted) return replygcxeon(`Send/Reply Images/Videos/Gifs With Captions ${prefix+command}\nVideo Duration 1-9 Seconds`)
 if (/image/.test(mime)) {
 let media = await quoted.download()
-let encmedia = await XeonBotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+let encmedia = await Bellah.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
 } else if (/video/.test(mime)) {
 if ((quoted.msg || quoted).seconds > 11) return replygcxeon('Send/Reply Images/Videos/Gifs With Captions ${prefix+command}\nVideo Duration 1-9 Seconds')
 let media = await quoted.download()
-let encmedia = await XeonBotInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+let encmedia = await Bellah.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
 } else {
 replygcxeon(`Send/Reply Images/Videos/Gifs With Captions ${prefix+command}\nVideo Duration 1-9 Seconds`)
 }
@@ -3099,20 +3099,20 @@ replygcxeon(`Send/Reply Images/Videos/Gifs With Captions ${prefix+command}\nVide
 break
             case 'swm': case 'steal': case 'stickerwm': case 'take':{
 if (!isPremium) return replyprem(mess.premium)
-if (!args.join(" ")) return replygcxeon(`Where is the text? Example:take Giddy Tennor`)
+if (!args.join(" ")) return replygcxeon(`Where is the text? Example:take Jinwiil Vinkel`)
 const swn = args.join(" ")
 const pcknm = swn.split("|")[0]
 const atnm = swn.split("|")[1]
 if (m.quoted.isAnimated === true) {
-XeonBotInc.downloadAndSaveMediaMessage(quoted, "gifee")
-XeonBotInc.sendMessage(from, {sticker:fs.readFileSync("gifee.webp")},{quoted:m})
+Bellah.downloadAndSaveMediaMessage(quoted, "gifee")
+Bellah.sendMessage(from, {sticker:fs.readFileSync("gifee.webp")},{quoted:m})
 } else if (/image/.test(mime)) {
 let media = await quoted.download()
-let encmedia = await XeonBotInc.sendImageAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })
+let encmedia = await Bellah.sendImageAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })
 } else if (/video/.test(mime)) {
 if ((quoted.msg || quoted).seconds > 11) return replygcxeon('Maximum 10 Seconds!')
 let media = await quoted.download()
-let encmedia = await XeonBotInc.sendVideoAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })
+let encmedia = await Bellah.sendVideoAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })
 } else {
 replygcxeon(`Photo/Video?`)
 }
@@ -3122,13 +3122,13 @@ break
             case 'photo': {
                 if (!/webp/.test(mime)) return replygcxeon(`Reply sticker with caption *${prefix + command}*`)
                 await XeonStickWait()
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(qmsg)
+                let media = await Bellah.downloadAndSaveMediaMessage(qmsg)
                 let ran = await getRandom('.png')
                 exec(`ffmpeg -i ${media} ${ran}`, (err) => {
                     fs.unlinkSync(media)
                     if (err) return err
                     let buffer = fs.readFileSync(ran)
-                    XeonBotInc.sendMessage(m.chat, {
+                    Bellah.sendMessage(m.chat, {
                         image: buffer
                     }, {
                         quoted: m
@@ -3142,9 +3142,9 @@ break
             case 'tovideo': {
                 if (!/webp/.test(mime)) return replygcxeon(`Reply sticker with caption *${prefix + command}*`)
                 await XeonStickWait()
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(qmsg)
+                let media = await Bellah.downloadAndSaveMediaMessage(qmsg)
                 let webpToMp4 = await webp2mp4File(media)
-                await XeonBotInc.sendMessage(m.chat, {
+                await Bellah.sendMessage(m.chat, {
                     video: {
                         url: webpToMp4.result,
                         caption: 'Convert Webp To Video'
@@ -3160,9 +3160,9 @@ break
             case 'toaudio': {
                 if (!/video/.test(mime) && !/audio/.test(mime)) return replygcxeon(`Send/Reply Video/Audio that you want to make into audio with captions ${prefix + command}`)
                 await XeonStickWait()
-                let media = await XeonBotInc.downloadMediaMessage(qmsg)
+                let media = await Bellah.downloadMediaMessage(qmsg)
                 let audio = await toAudio(media, 'mp4')
-                XeonBotInc.sendMessage(m.chat, {
+                Bellah.sendMessage(m.chat, {
                     audio: audio,
                     mimetype: 'audio/mpeg'
                 }, {
@@ -3174,9 +3174,9 @@ break
             case 'tomp3': {
                 if (!/video/.test(mime) && !/audio/.test(mime)) return replygcxeon(`Send/Reply Video/Audio that you want to make into MP3 with captions ${prefix + command}`)
                 await XeonStickWait()
-                let media = await XeonBotInc.downloadMediaMessage(qmsg)
+                let media = await Bellah.downloadMediaMessage(qmsg)
                 let audio = await toAudio(media, 'mp4')
-                XeonBotInc.sendMessage(m.chat, {
+                Bellah.sendMessage(m.chat, {
                     document: audio,
                     mimetype: 'audio/mp3',
                     fileName: `dgxeon.mp3`
@@ -3190,12 +3190,12 @@ break
             case 'toptt': {
                 if (!/video/.test(mime) && !/audio/.test(mime)) return replygcxeon(`Send/Reply Video/Audio that you want to make into a VN with captions ${prefix + command}`)
                 await XeonStickWait()
-                let media = await XeonBotInc.downloadMediaMessage(qmsg)
+                let media = await Bellah.downloadMediaMessage(qmsg)
                 let {
                     toPTT
                 } = require('./lib/converter')
                 let audio = await toPTT(media, 'mp4')
-                XeonBotInc.sendMessage(m.chat, {
+                Bellah.sendMessage(m.chat, {
                     audio: audio,
                     mimetype: 'audio/mpeg',
                     ptt: true
@@ -3208,9 +3208,9 @@ break
             case 'togif': {
                 if (!/webp/.test(mime)) return replygcxeon(`Reply sticker with caption *${prefix + command}*`)
                 await XeonStickWait()
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(qmsg)
+                let media = await Bellah.downloadAndSaveMediaMessage(qmsg)
                 let webpToMp4 = await webp2mp4File(media)
-                await XeonBotInc.sendMessage(m.chat, {
+                await Bellah.sendMessage(m.chat, {
                     video: {
                         url: webpToMp4.result,
                         caption: 'Convert Webp To Video'
@@ -3225,7 +3225,7 @@ break
             break
             case 'tourl': {
                 await XeonStickWait()
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(qmsg)
+                let media = await Bellah.downloadAndSaveMediaMessage(qmsg)
                 if (/image/.test(mime)) {
                     let anu = await TelegraPh(media)
                     replygcxeon(util.format(anu))
@@ -3244,7 +3244,7 @@ break
                 await XeonStickWait()
                 let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)
                 for (let res of anu.results) {
-                    let encmedia = await XeonBotInc.sendImageAsSticker(m.chat, res.url, m, {
+                    let encmedia = await Bellah.sendImageAsSticker(m.chat, res.url, m, {
                         packname: global.packname,
                         author: global.author,
                         categories: res.tags
@@ -3256,7 +3256,7 @@ break
                 if (!text) return replygcxeon(`Example : ${prefix + command} 😅`)
                 let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(text)}`)
                 for (let res of anu.results) {
-                    let encmedia = await XeonBotInc.sendImageAsSticker(m.chat, res.url, m, {
+                    let encmedia = await Bellah.sendImageAsSticker(m.chat, res.url, m, {
                         packname: global.packname,
                         author: global.author,
                         categories: res.tags
@@ -3268,8 +3268,8 @@ break
             case 'vv': {
                 if (!quoted) return replygcxeon(`Reply Image/Video`)
                 if (/image/.test(mime)) {
-                    anuan = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
-                    XeonBotInc.sendMessage(m.chat, {
+                    anuan = await Bellah.downloadAndSaveMediaMessage(quoted)
+                    Bellah.sendMessage(m.chat, {
                         image: {
                             url: anuan
                         },
@@ -3280,8 +3280,8 @@ break
                         quoted: m
                     })
                 } else if (/video/.test(mime)) {
-                    anuanuan = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
-                    XeonBotInc.sendMessage(m.chat, {
+                    anuanuan = await Bellah.downloadAndSaveMediaMessage(quoted)
+                    Bellah.sendMessage(m.chat, {
                         video: {
                             url: anuanuan
                         },
@@ -3292,8 +3292,8 @@ break
                         quoted: m
                     })
                 } else if (/audio/.test(mime)) {
-                   bebasap = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
-                   XeonBotInc.sendMessage(m.chat, {
+                   bebasap = await Bellah.downloadAndSaveMediaMessage(quoted)
+                   Bellah.sendMessage(m.chat, {
                      audio: {
                         url: bebasap
                      },
@@ -3320,32 +3320,32 @@ break
    let buff = getRandom('.jpg')
    await fs.writeFileSync('./'+buff, data)
    let medi = fs.readFileSync('./' + buff)
-  await XeonBotInc.sendMessage(from, { image: medi, caption:"Here you go!"}, { quoted: m })
+  await Bellah.sendMessage(from, { image: medi, caption:"Here you go!"}, { quoted: m })
    setTimeout(() => { fs.unlinkSync(buff) }, 10000)
   }
   break
   case 'volaudio': {
 if (!args.join(" ")) return replygcxeon(`Example: ${prefix + command} 10`)
-media = await XeonBotInc.downloadAndSaveMediaMessage(quoted, "volume")
+media = await Bellah.downloadAndSaveMediaMessage(quoted, "volume")
 rname = getRandom('.mp3')
 exec(`ffmpeg -i ${media} -filter:a volume=${args[0]} ${rname}`, (err, stderr, stdout) => {
 fs.unlinkSync(media)
 if (err) return replygcxeon('Error!')
 jadie = fs.readFileSync(rname)
-XeonBotInc.sendMessage(from, {audio:jadie, mimetype: 'audio/mp4', ptt: true}, {quoted: m})
+Bellah.sendMessage(from, {audio:jadie, mimetype: 'audio/mp4', ptt: true}, {quoted: m})
 fs.unlinkSync(rname)
 })
 }
 break
 case 'volvideo': {
 if (!args.join(" ")) return replygcxeon(`Example: ${prefix + command} 10`)
-media = await XeonBotInc.downloadAndSaveMediaMessage(quoted, "volume")
+media = await Bellah.downloadAndSaveMediaMessage(quoted, "volume")
 rname = getRandom('.mp4')
 exec(`ffmpeg -i ${media} -filter:a volume=${args[0]} ${rname}`, (err, stderr, stdout) => {
 fs.unlinkSync(media)
 if (err) return replygcxeon('Error!')
 jadie = fs.readFileSync(rname)
-XeonBotInc.sendMessage(from, {video:jadie, mimetype: 'video/mp4'}, {quoted: m})
+Bellah.sendMessage(from, {video:jadie, mimetype: 'video/mp4'}, {quoted: m})
 fs.unlinkSync(rname)
 })
 }
@@ -3367,13 +3367,13 @@ break
                 if (/squirrel/.test(command)) set = '-filter:a "atempo=0.5,asetrate=65100"'
                 if (/audio/.test(mime)) {
                 await XeonStickWait()
-                let media = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
+                let media = await Bellah.downloadAndSaveMediaMessage(quoted)
                 let ran = getRandom('.mp3')
                 exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {
                 fs.unlinkSync(media)
                 if (err) return replygcxeon(err)
                 let buff = fs.readFileSync(ran)
-                XeonBotInc.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : m })
+                Bellah.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : m })
                 fs.unlinkSync(ran)
                 })
                 } else replygcxeon(`Reply to the audio you want to change with a caption *${prefix + command}*`)
@@ -3429,10 +3429,10 @@ ${arr.slice(6).join('')}
 Wait @${room.game.currentTurn.split('@')[0]}
 
 Type *surrender* to give up and admit defeat`
-                    if (room.x !== room.o) await XeonBotInc.sendText(room.x, str, m, {
+                    if (room.x !== room.o) await Bellah.sendText(room.x, str, m, {
                         mentions: parseMention(str)
                     })
-                    await XeonBotInc.sendText(room.o, str, m, {
+                    await Bellah.sendText(room.o, str, m, {
                         mentions: parseMention(str)
                     })
                 } else {
@@ -3455,7 +3455,7 @@ Type *surrender* to give up and admit defeat`
                 try {
                     if (this.game) {
                         delete this.game
-                        XeonBotInc.sendText(m.chat, `Berhasil delete session TicTacToe`, m)
+                        Bellah.sendText(m.chat, `Berhasil delete session TicTacToe`, m)
                     } else if (!this.game) {
                         replygcxeon(`Session TicTacToe🎮 tidak ada`)
                     } else mewReply('?')
@@ -3483,7 +3483,7 @@ Type *surrender* to give up and admit defeat`
 
 Please @${m.mentionedJid[0].split`@`[0]} to type accept/reject`
                 this.suit[id] = {
-                    chat: await XeonBotInc.sendText(m.chat, caption, m, {
+                    chat: await Bellah.sendText(m.chat, caption, m, {
                         mentions: parseMention(caption)
                     }),
                     id: id,
@@ -3491,7 +3491,7 @@ Please @${m.mentionedJid[0].split`@`[0]} to type accept/reject`
                     p2: m.mentionedJid[0],
                     status: 'wait',
                     waktu: setTimeout(() => {
-                        if (this.suit[id]) XeonBotInc.sendText(m.chat, `_Suit time is up_`, m)
+                        if (this.suit[id]) Bellah.sendText(m.chat, `_Suit time is up_`, m)
                         delete this.suit[id]
                     }, 60000),
                     poin,
@@ -3505,7 +3505,7 @@ Please @${m.mentionedJid[0].split`@`[0]} to type accept/reject`
                 let { genMath, modes } = require('./lib/math')
                 if (!text) return replygcxeon(`Mode: ${Object.keys(modes).join(' | ')}\nUsage example: ${prefix}math medium`)
                 let result = await genMath(text.toLowerCase())
-                XeonBotInc.sendText(m.chat, `*What is the result of: ${result.soal.toLowerCase()}*?\n\nTime: ${(result.waktu / 1000).toFixed(2)} second`, m).then(() => {
+                Bellah.sendText(m.chat, `*What is the result of: ${result.soal.toLowerCase()}*?\n\nTime: ${(result.waktu / 1000).toFixed(2)} second`, m).then(() => {
                     kuismath[m.sender.split('@')[0]] = result.jawaban
                 })
                 await sleep(result.waktu)
@@ -3698,7 +3698,7 @@ from: {
 id: 1,
 name: pushname,
 photo: { 
-url: await XeonBotInc.profilePictureUrl(m.sender, "image").catch(() => 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'),
+url: await Bellah.profilePictureUrl(m.sender, "image").catch(() => 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'),
 }
 },
 text: message,
@@ -3712,7 +3712,7 @@ headers: {
 },
 });
 let buffer = Buffer.from(response.data.result.image, 'base64');
-XeonBotInc.sendImageAsSticker(m.chat, buffer, m, { packname: `${global.packname}`, author: `${global.author}`})
+Bellah.sendImageAsSticker(m.chat, buffer, m, { packname: `${global.packname}`, author: `${global.author}`})
 }
 break
     case 'ephemeral': {
@@ -3721,10 +3721,10 @@ break
                 if (!isAdmins) return XeonStickAdmin()
                 if (!text) return replygcxeon('Enter the value enable/disable')
                 if (args[0] === 'on') {
-                    await XeonBotInc.sendMessage(m.chat, { disappearingMessagesInChat: WA_DEFAULT_EPHEMERAL })
+                    await Bellah.sendMessage(m.chat, { disappearingMessagesInChat: WA_DEFAULT_EPHEMERAL })
                     await replygcxeon(`Done`)
                 } else if (args[0] === 'off') {
-                    await XeonBotInc.sendMessage(m.chat, { disappearingMessagesInChat: false })
+                    await Bellah.sendMessage(m.chat, { disappearingMessagesInChat: false })
                     await replygcxeon(`Done`)
                 }
             }
@@ -3739,7 +3739,7 @@ break
  } catch (e) {
  	console.error(e)
  }
- XeonBotInc.sendMessage(m.chat, { delete: key })
+ Bellah.sendMessage(m.chat, { delete: key })
 }
 break
     case 'autoswview':
@@ -3772,7 +3772,7 @@ case 'addvideo':{
 if (!XeonTheCreator) return XeonStickOwner()
 if (args.length < 1) return replygcxeon('Whats the video name?')
 if (VideoXeon.includes(q)) return replygcxeon("The name is already in use")
-let delb = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
+let delb = await Bellah.downloadAndSaveMediaMessage(quoted)
 VideoXeon.push(q)
 await fsx.copy(delb, `./XeonMedia/video/${q}.mp4`)
 fs.writeFileSync('./XMEDIA/database/bellahvideo.json', JSON.stringify(VideoXeon))
@@ -3804,7 +3804,7 @@ case 'addimage':{
 if (!XeonTheCreator) return XeonStickOwner()
 if (args.length < 1) return replygcxeon('Whats the image name?')
 if (ImageXeon.includes(q)) return replygcxeon("The name is already in use")
-let delb = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
+let delb = await Bellah.downloadAndSaveMediaMessage(quoted)
 ImageXeon.push(q)
 await fsx.copy(delb, `./XeonMedia/image/${q}.jpg`)
 fs.writeFileSync('./XMEDIA/database/bellahimage.json', JSON.stringify(ImageXeon))
@@ -3836,7 +3836,7 @@ case 'addsticker':{
 if (!XeonTheCreator) return XeonStickOwner()
 if (args.length < 1) return replygcxeon('Whats the sticker name?')
 if (StickerXeon.includes(q)) return replygcxeon("The name is already in use")
-let delb = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
+let delb = await Bellah.downloadAndSaveMediaMessage(quoted)
 StickerXeon.push(q)
 await fsx.copy(delb, `./XeonMedia/sticker/${q}.webp`)
 fs.writeFileSync('./XMEDIA/database/bellahsticker.json', JSON.stringify(StickerXeon))
@@ -3882,7 +3882,7 @@ View list of Messages With ${prefix}listmsg`)
                 if (!text) return replygcxeon(`Example : ${prefix + command} file name\n\nView list of messages with ${prefix}listmsg`)
                 let msgs = global.db.data.database
                 if (!(text.toLowerCase() in msgs)) return replygcxeon(`'${text}' not listed in the message list`)
-                XeonBotInc.copyNForward(m.chat, msgs[text.toLowerCase()], true)
+                Bellah.copyNForward(m.chat, msgs[text.toLowerCase()], true)
             }
             break
             case 'listmsg': {
@@ -3907,7 +3907,7 @@ case 'addvn':{
 if (!XeonTheCreator) return XeonStickOwner()
 if (args.length < 1) return replygcxeon('Whats the audio name?')
 if (VoiceNoteXeon.includes(q)) return replygcxeon("The name is already in use")
-let delb = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
+let delb = await Bellah.downloadAndSaveMediaMessage(quoted)
 VoiceNoteXeon.push(q)
 await fsx.copy(delb, `./XeonMedia/audio/${q}.mp3`)
 fs.writeFileSync('./XeonMedia/database/xeonvn.json', JSON.stringify(VoiceNoteXeon))
@@ -3934,7 +3934,7 @@ if (args.length < 1) return replygcxeon(`What's the zip name?`)
 let teks = `${text}`
 {
 if (ZipXeon.includes(teks)) return replygcxeon("This name is already in use")
-let delb = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
+let delb = await Bellah.downloadAndSaveMediaMessage(quoted)
 ZipXeon.push(teks)
 await fsx.copy(delb, `./XeonMedia/zip/${teks}.zip`)
 fs.writeFileSync('./XMEDIA/database/zip.json', JSON.stringify(ZipXeon))
@@ -3975,7 +3975,7 @@ if (args.length < 1) return replygcxeon('What is the name of the apk?')
 let teks = `${text}`
 {
 if (ApkXeon.includes(teks)) return replygcxeon("This name is already in use")
-let delb = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
+let delb = await Bellah.downloadAndSaveMediaMessage(quoted)
 apknye.push(teks)
 await fsx.copy(delb, `./XeonMedia/apk/${teks}.apk`)
 fs.writeFileSync('./XMEDIA/database/apk.json', JSON.stringify(ApkXeon))
@@ -4016,7 +4016,7 @@ if (args.length < 1) return replygcxeon('What is the name of the pdf')
 let teks = `${text}`
 {
 if (DocXeon.includes(teks)) return replygcxeon("This name is already in use")
-let delb = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
+let delb = await Bellah.downloadAndSaveMediaMessage(quoted)
 DocXeon.push(teks)
 await fsx.copy(delb, `./XeonMedia/doc/${teks}.pdf`)
 fs.writeFileSync('./XMEDIA/database/doc.json', JSON.stringify(DocXeon))
@@ -4069,13 +4069,13 @@ setTimeout(() => {
 replygcxeon('Managed to Get One Person')
 }, 5000)
 setTimeout(() => {
-XeonBotInc.sendMessage(from, {text: `Here @${teman.split("@")[0]}`, mentions: [teman]}, { quoted : m })
+Bellah.sendMessage(from, {text: `Here @${teman.split("@")[0]}`, mentions: [teman]}, { quoted : m })
 }, 9000)
 }
 break
 case 'q': case 'quoted': {
 if (!m.quoted) return replygcxeon('Reply the Message!!')
-let xeonquotx= await XeonBotInc.serializeM(await m.getQuotedObj())
+let xeonquotx= await Bellah.serializeM(await m.getQuotedObj())
 if (!xeonquotx.quoted) return replygcxeon('The message you are replying to is not sent by the bot')
 await xeonquotx.quoted.copyNForward(m.chat, true)
 }
@@ -4107,7 +4107,7 @@ case 'yts': case 'ytsearch': {
                 for (let i of search.all) {
                     teks += `${themeemoji} No : ${no++}\n${themeemoji} Type : ${i.type}\n${themeemoji} Video ID : ${i.videoId}\n${themeemoji} Title : ${i.title}\n${themeemoji} Views : ${i.views}\n${themeemoji} Duration : ${i.timestamp}\n${themeemoji} Uploaded : ${i.ago}\n${themeemoji} Url : ${i.url}\n\n─────────────────\n\n`
                 }
-                XeonBotInc.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
+                Bellah.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
             }
             break
             
@@ -4130,7 +4130,7 @@ case "song": {
       throw new Error('*Failed to retrieve the song!*');
     }
     
-    await XeonBotInc.sendMessage(m.chat, { 
+    await Bellah.sendMessage(m.chat, { 
       audio: {url: kyuu.data.dl}, 
       mimetype: 'audio/mpeg', 
       contextInfo: { 
@@ -4147,7 +4147,7 @@ case "song": {
       } 
     }, { quoted: m });
     
-    XeonBotInc.sendMessage(m.chat, { react: { text: '🎧', key: m.key }});
+    Bellah.sendMessage(m.chat, { react: { text: '🎧', key: m.key }});
   
   } catch (error) {
     console.error(error);
@@ -4158,7 +4158,7 @@ case 'ytmp3': case 'ytaudio':
 let xeonaudp3 = require('./lib/ytdl')
 if (args.length < 1 || !isUrl(text) || !xeonaudp3.isYTUrl(text)) return replygcxeon(`Where's the yt link?\nExample: ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`)
 let audio = await xeonaudp3.mp3(text)
-await XeonBotInc.sendMessage(m.chat,{
+await Bellah.sendMessage(m.chat,{
     audio: fs.readFileSync(audio.path),
     mimetype: 'audio/mp4', ptt: true,
     contextInfo:{
@@ -4183,27 +4183,27 @@ const ytc=`
 *${themeemoji}Date:* ${vid.date}
 *${themeemoji}Duration:* ${vid.duration}
 *${themeemoji}Quality:* ${vid.quality}`
-await XeonBotInc.sendMessage(m.chat,{
+await Bellah.sendMessage(m.chat,{
     video: {url:vid.videoUrl},
     caption: ytc
 },{quoted:m})
 }
 break
 case 'git': case 'gitclone':
-if (!args[0]) return replygcxeon(`Where is the link?\nExample :\n${prefix}${command} https://github.com/DGXeon/XMEDIA`)
+if (!args[0]) return replygcxeon(`Where is the link?\nExample :\n${prefix}${command} https://github.com/Finjohns/XMEDIA`)
 if (!isUrl(args[0]) && !args[0].includes('github.com')) return replygcxeon(`Link invalid!!`)
 let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
     let [, user, repo] = args[0].match(regex1) || []
     repo = repo.replace(/.git$/, '')
     let url = `https://api.github.com/repos/${user}/${repo}/zipball`
     let filename = (await fetch(url, {method: 'HEAD'})).headers.get('content-disposition').match(/attachment; filename=(.*)/)[1]
-    XeonBotInc.sendMessage(m.chat, { document: { url: url }, fileName: filename+'.zip', mimetype: 'application/zip' }, { quoted: m }).catch((err) => replygcxeon(mess.error))
+    Bellah.sendMessage(m.chat, { document: { url: url }, fileName: filename+'.zip', mimetype: 'application/zip' }, { quoted: m }).catch((err) => replygcxeon(mess.error))
 break
 case 'tiktok':{
 if (!q) return replygcxeon( `Example : ${prefix + command} link`)
 if (!q.includes('tiktok')) return replygcxeon(`Link Invalid!!`)
 require('./lib/tiktok').Tiktok(q).then( data => {
-XeonBotInc.sendMessage(m.chat, { caption: `Here you go!`, video: { url: data.watermark }}, {quoted:m})
+Bellah.sendMessage(m.chat, { caption: `Here you go!`, video: { url: data.watermark }}, {quoted:m})
 })
 }
 break
@@ -4212,7 +4212,7 @@ if (!q) return replygcxeon( `Example : ${prefix + command} link`)
 if (!q.includes('tiktok')) return replygcxeon(`Link Invalid!!`)
 require('./lib/tiktok').Tiktok(q).then( data => {
 const xeontikmp3 = {url:data.audio}
-XeonBotInc.sendMessage(m.chat, { audio: xeontikmp3, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
+Bellah.sendMessage(m.chat, { audio: xeontikmp3, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
 })
 }
 break
@@ -4249,7 +4249,7 @@ if (!text) return replygcxeon('What location?')
             textw += `*Longitude:-* ${wdata.data.coord.lon}\n`
             textw += `*Country:-* ${wdata.data.sys.country}\n`
 
-           XeonBotInc.sendMessage(
+           Bellah.sendMessage(
                 m.chat, {
                     text: textw,
                 }, {
@@ -4275,7 +4275,7 @@ ${themeemoji} Title: ${result.title}`;
     const response = await fetch(result.videoUrl)
     const arrayBuffer = await response.arrayBuffer()
     const videoBuffer = Buffer.from(arrayBuffer)
-    XeonBotInc.sendMessage(m.chat, {video: videoBuffer, caption: tex}, {quoted: m})
+    Bellah.sendMessage(m.chat, {video: videoBuffer, caption: tex}, {quoted: m})
   } catch (error) {
     replygcxeon('Maybe private video!')
   }
@@ -4295,7 +4295,7 @@ case 'tiktokstalk': {
 
 ▢ *🔗 Link* : https://tiktok.com/${res.username}
 └────────────`
-  await XeonBotInc.sendMessage(m.chat, {image: { url: res.profile}, caption: txt}, {quoted: m})
+  await Bellah.sendMessage(m.chat, {image: { url: res.profile}, caption: txt}, {quoted: m})
 }
 break
 case 'igstalk': {
@@ -4313,7 +4313,7 @@ const fg = require('api-dylux')
 ▢ *🏝️Posts:* ${res.postsH}
 ▢ *🔗 Link* : https://instagram.com/${res.username.replace(/^@/, '')}
 └────────────`
-     await XeonBotInc.sendMessage(m.chat, {image: { url: res.profilePic }, caption: te }, {quoted: m})
+     await Bellah.sendMessage(m.chat, {image: { url: res.profilePic }, caption: te }, {quoted: m})
       } catch {
         replygcxeon(`Make sure the username comes from *Instagram*`)
       }
@@ -4324,7 +4324,7 @@ if (!q) return replygcxeon(`Example ${prefix+command} GiddyTennor`)
 await XeonStickWait()
 let githubstalk = require('./lib/scraper')
 aj = await githubstalk.githubstalk(`${q}`)
-XeonBotInc.sendMessage(m.chat, { image: { url : aj.profile_pic }, caption: 
+Bellah.sendMessage(m.chat, { image: { url : aj.profile_pic }, caption: 
 `*/ Github Stalker \\*
 
 Username : ${aj.username}
@@ -4513,7 +4513,7 @@ case 'spotify':{
               }
             }
         }        
-        await XeonBotInc.sendMessage(m.chat, doc, { quoted: m })
+        await Bellah.sendMessage(m.chat, doc, { quoted: m })
     } catch (error) {
         console.error('Error fetching Spotify data:', error)
         return replygcxeon('*Error*')
@@ -4544,7 +4544,7 @@ await XeonStickWait()
             imdbt += "🏙️Production : " + fids.data.Production + "\n"
             imdbt += "🌟imdbRating : " + fids.data.imdbRating + "\n"
             imdbt += "✅imdbVotes  : " + fids.data.imdbVotes + ""
-           XeonBotInc.sendMessage(m.chat, {
+           Bellah.sendMessage(m.chat, {
                 image: {
                     url: fids.data.Poster,
                 },
@@ -4585,7 +4585,7 @@ case 'gdrive': {
 ▢ *Nama:* ${res.fileName}
 ▢ *Size:* ${res.fileSize}
 ▢ *Type:* ${res.mimetype}`)
-	XeonBotInc.sendMessage(m.chat, { document: { url: res.downloadUrl }, fileName: res.fileName, mimetype: res.mimetype }, { quoted: m })
+	Bellah.sendMessage(m.chat, { document: { url: res.downloadUrl }, fileName: res.fileName, mimetype: res.mimetype }, { quoted: m })
    } catch {
 	replygcxeon('Error: Check link or try another link') 
   }
@@ -4595,8 +4595,7 @@ case 'pinterest': {
 if (!text) return replygcxeon(`Enter Query`)
 let { pinterest } = require('./lib/scraper')
 anutrest = await pinterest(text)
-result = anutrest[Math.floor(Math.random() * anutrest.length)]
-XeonBotInc.sendMessage(m.chat, { image: { url: result }, caption: '⭔ Media Url : '+result }, { quoted: m })
+result = anutrest[Math.floor(Math.random() * anutrest.length)] Bellah.sendMessage(m.chat, { image: { url: result }, caption: '⭔ Media Url : '+result }, { quoted: m })
 }
 break
 case 'ringtone': {
@@ -4604,172 +4603,172 @@ case 'ringtone': {
         let ringtone = require('./lib/scraper')
 		let anutone2 = await ringtone(text)
 		let result = anutone2[Math.floor(Math.random() * anutone2.length)]
-		XeonBotInc.sendMessage(m.chat, { audio: { url: result.audio }, fileName: result.title+'.mp3', mimetype: 'audio/mpeg' }, { quoted: m })
+		Bellah.sendMessage(m.chat, { audio: { url: result.audio }, fileName: result.title+'.mp3', mimetype: 'audio/mpeg' }, { quoted: m })
 	    }
 	    break
 case 'tiktokgirl':
 await XeonStickWait()
 var asupan = JSON.parse(fs.readFileSync('./src/media/tiktokvids/tiktokgirl.json'))
 var hasil = pickRandom(asupan)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case 'tiktokghea':
 await XeonStickWait()
 var gheayubi = JSON.parse(fs.readFileSync('./src/media/tiktokvids/gheayubi.json'))
 var hasil = pickRandom(gheayubi)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case 'tiktokbocil':
 await XeonStickWait()
 var bocil = JSON.parse(fs.readFileSync('./src/media/tiktokvids/bocil.json'))
 var hasil = pickRandom(bocil)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case 'tiktoknukhty':
 await XeonStickWait()
 var ukhty = JSON.parse(fs.readFileSync('./src/media/tiktokvids/ukhty.json'))
 var hasil = pickRandom(ukhty)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case 'tiktoksantuy':
 await XeonStickWait()
 var santuy = JSON.parse(fs.readFileSync('./src/media/tiktokvids/santuy.json'))
 var hasil = pickRandom(santuy)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case 'tiktokkayes':
 await XeonStickWait()
 var kayes = JSON.parse(fs.readFileSync('./src/media/tiktokvids/kayes.json'))
 var hasil = pickRandom(kayes)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case 'tiktokpanrika':
 await XeonStickWait()
 var rikagusriani = JSON.parse(fs.readFileSync('./src/media/tiktokvids/panrika.json'))
 var hasil = pickRandom(rikagusriani)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case 'tiktoknotnot':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokvids/notnot.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case 'chinese':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/china.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'hijab':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/hijab.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'indo':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/indonesia.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'japanese':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/japan.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'korean':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/korea.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'malay':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/malaysia.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'randomgirl':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/random.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'randomboy':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/random2.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'thai':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/thailand.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'vietnamese':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/tiktokpics/vietnam.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'aesthetic':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/aesthetic.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'antiwork':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/antiwork.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'blackpink':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/blackpink.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'bike':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/bike.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'boneka':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/boneka.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'cosplay':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/cosplay.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'cat':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/cat.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'doggo':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/doggo.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'justina':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/justina.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
-break
-case 'kayes':
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+break;
+/* case 'kayes':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/kayes.json'))
 var hasil = pickRandom(notnot)
@@ -4799,19 +4798,20 @@ let random = anu[Math.floor(Math.random() * anu.length)]
 XeonBotInc.sendMessage(from, { image: { url: random.male }, caption: `Couple pp for male` }, { quoted: m })
 XeonBotInc.sendMessage(from, { image: { url: random.female }, caption: `Couple pp for female` }, { quoted: m })
 }
-break
+break */
 case 'profilepic':  case 'profilepicture':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/profile.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'pubg':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/pubg.json'))
 var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
-break
+Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+break;
+			/*
 case 'rose':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/rose.json'))
@@ -4841,12 +4841,11 @@ await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/wallml.json'))
 var hasil = pickRandom(notnot)
 XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
-break
+break; */
 case 'wallpaperphone': case 'wallphone':
 await XeonStickWait()
 var notnot = JSON.parse(fs.readFileSync('./src/media/randompics/wallhp.json'))
-var hasil = pickRandom(notnot)
-XeonBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
+var hasil = pickRandom(notnot) Bellah.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
             case 'remini': {
 			if (!quoted) return replygcxeon(`Where is the picture?`)
@@ -4855,7 +4854,7 @@ break
 			const { remini } = require('./lib/remini')
 			let media = await quoted.download()
 			let proses = await remini(media, "enhance")
-			XeonBotInc.sendMessage(m.chat, { image: proses, caption: mess.success}, { quoted: m})
+			Bellah.sendMessage(m.chat, { image: proses, caption: mess.success}, { quoted: m})
 			}
 			break
 			case 'define': 
@@ -4871,7 +4870,7 @@ const reply = `
 *${themeemoji} Example:* ${targetfine.data.list[0].example
     .replace(/\[/g, "")
     .replace(/\]/g, "")}`
-   XeonBotInc.sendMessage(m.chat,{text:reply},{quoted:m})
+   Bellah.sendMessage(m.chat,{text:reply},{quoted:m})
 } catch (err) {
     console.log(err)
     return replygcxeon(`*${q}* isn't a valid text`)
@@ -4947,14 +4946,14 @@ case 'waifucheck':
 cantik = body.slice(1)
 const okebnh1 =['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 const xeonkak = okebnh1[Math.floor(Math.random() * okebnh1.length)]
-XeonBotInc.sendMessage(m.chat, { text: xeonkak }, { quoted: m })
+Bellah.sendMessage(m.chat, { text: xeonkak }, { quoted: m })
 break
             case 'soulmate': {
             if (!m.isGroup) return XeonStickGroup()
             let member = participants.map(u => u.id)
             let me = m.sender
             let jodoh = member[Math.floor(Math.random() * member.length)]
-XeonBotInc.sendMessage(m.chat,
+Bellah.sendMessage(m.chat,
 { text: `👫Your Soulmate Is
 
 @${me.split('@')[0]} ❤️ @${jodoh.split('@')[0]}`,
@@ -4973,7 +4972,7 @@ isForwarded: true,
 "sourceUrl": `${wagc}`}}},
 { quoted: m})        
             }
-            break
+            break; /*
  case 'couple': {
             if (!m.isGroup) return XeonStickGroup()
             let member = participants.map(u => u.id)
@@ -5001,14 +5000,14 @@ isForwarded: true,
                         case 'coffee': case 'kopi': {
                 XeonBotInc.sendMessage(m.chat, {caption: mess.success, image: { url: 'https://coffee.alexflipnote.dev/random' }}, { quoted: m })
             }
-            break
+            break; */
             case 'wallpaper': {
                 if (!text) return replygcxeon('Enter Query Title')
                 await XeonStickWait()
 		let { wallpaper } = require('./lib/scraper')
                 anuwallpep = await wallpaper(text)
                 result = anuwallpep[Math.floor(Math.random() * anuwallpep.length)]                
-                XeonBotInc.sendMessage(m.chat, {caption: `${themeemoji} Title : ${result.title}\n${themeemoji} Category : ${result.type}\n${themeemoji} Detail : ${result.source}\n${themeemoji} Media Url : ${result.image[2] || result.image[1] || result.image[0]}`, image: { url: result.image[0] }} , { quoted: m })
+                Bellah.sendMessage(m.chat, {caption: `${themeemoji} Title : ${result.title}\n${themeemoji} Category : ${result.type}\n${themeemoji} Detail : ${result.source}\n${themeemoji} Media Url : ${result.image[2] || result.image[1] || result.image[0]}`, image: { url: result.image[0] }} , { quoted: m })
             }
             break
             case 'wikimedia': {
@@ -5017,7 +5016,7 @@ isForwarded: true,
 		let { wikimedia } = require('./lib/scraper')
                 let anumedia = await wikimedia(text)
                 result = anumedia[Math.floor(Math.random() * anumedia.length)]
-                XeonBotInc.sendMessage(m.chat, {caption: `${themeemoji} Title : ${result.title}\n${themeemoji} Source : ${result.source}\n${themeemoji} Media Url : ${result.image}`, image: { url: result.image }} , { quoted: m })
+                Bellah.sendMessage(m.chat, {caption: `${themeemoji} Title : ${result.title}\n${themeemoji} Source : ${result.source}\n${themeemoji} Media Url : ${result.image}`, image: { url: result.image }} , { quoted: m })
             }
             break
             
@@ -5029,7 +5028,7 @@ isForwarded: true,
       const response = await fetch(baseUrl + endpoint)
       if (!response.ok) return replygcxeon(`Error fetching ${type} image`)
       const imageBuffer = await response.buffer() // Get the image data as a buffer
-      XeonBotInc.sendMessage(m.chat, {image:  imageBuffer, caption: `Random ${type}`}, {quoted: m})
+      Bellah.sendMessage(m.chat, {image:  imageBuffer, caption: `Random ${type}`}, {quoted: m})
     } catch (error) {
       console.error(error)
       replygcxeon(`An error occurred while fetching the ${type} image. Please use the command properly \nExample: ${prefix + command} loli\n`)
@@ -5158,7 +5157,7 @@ if (/yuki/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.
 if (/yulibocil/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/yulibocil.json')
 if (/yumeko/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/yumeko.json')
 let yeha = heyy[Math.floor(Math.random() * heyy.length)]
-XeonBotInc.sendMessage(m.chat, { image: { url: yeha }, caption : mess.success }, { quoted: m })
+Bellah.sendMessage(m.chat, { image: { url: yeha }, caption : mess.success }, { quoted: m })
 }
 break
 case 'lyrics': {
@@ -5179,13 +5178,13 @@ break
 case 'pick': {
             	if (!m.isGroup) return XeonStickGroup()
             	if (!text) return replygcxeon(`What do you want to pick?\nExample: ${prefix + command} idiot`)
-             const groupMetadata = m.isGroup ? await XeonBotInc.groupMetadata(m.chat)
+             const groupMetadata = m.isGroup ? await Bellah.groupMetadata(m.chat)
                  .catch((e) => {}) : ""
              const participants = m.isGroup ? await groupMetadata.participants : ""
              let member = participants.map((u) => u.id)
              let me = m.sender
              let xeonshimts = member[Math.floor(Math.random() * member.length)]
-             XeonBotInc.sendMessage(from, { 
+             Bellah.sendMessage(from, { 
 text: `The most *${text}* here is *@${xeonshimts.split("@")[0]}*`,
 contextInfo:{
 forwardingScore: 9999999,
@@ -5213,7 +5212,7 @@ if (!text) return replygcxeon('Where is the text?')
                 slow: false,
                 host: "https://translate.google.com",
             })
-            return XeonBotInc.sendMessage(m.chat, {
+            return Bellah.sendMessage(m.chat, {
                 audio: {
                     url: xeonrl,
                 },
@@ -5321,7 +5320,7 @@ case 'dare':
 ]
               const xeondare = dare[Math.floor(Math.random() * dare.length)]
               bufferdare = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
-              XeonBotInc.sendMessage(from, { image: bufferdare, caption: '_You choose DARE_\n'+ xeondare }, {quoted:m})
+              Bellah.sendMessage(from, { image: bufferdare, caption: '_You choose DARE_\n'+ xeondare }, {quoted:m})
               break
                             break
        case 'truth':
