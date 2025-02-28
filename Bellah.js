@@ -2646,13 +2646,13 @@ if (!XeonTheCreator) return XeonStickOwner()
     let who
     if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender
     else who = m.quoted.sender ? m.quoted.sender : m.sender
-    let bio = await XeonBotInc.fetchStatus(who)
+    let bio = await Bellah.fetchStatus(who)
     replygcxeon(bio.status)
   } catch {
     if (text) return replygcxeon(`bio is private or you haven't replied to the person's message!`)
     else try {
       let who = m.quoted ? m.quoted.sender : m.sender
-      let bio = await XeonBotInc.fetchStatus(who)
+      let bio = await Bellah.fetchStatus(who)
       replygcxeon(bio.status)
     } catch {
       return replygcxeon(`bio is private or you haven't replied to the person's message!`)
@@ -2692,7 +2692,7 @@ Please Type Below
 *${prefix}upvote* - to cast vote
 *${prefix}downvote* -  to downvote
 *${prefix}deletevote* - to delete vote`
-            XeonBotInc.sendMessage(m.chat, {text: teks_vote}, {quoted:m})
+            Bellah.sendMessage(m.chat, {text: teks_vote}, {quoted:m})
 	    }
             break
                case 'upvote': {
@@ -2725,7 +2725,7 @@ Please Type Below
 *${prefix}upvote* - to upvote
 *${prefix}downvote* -  to downvote
 *${prefix}deletevote* - to delete vote`
-            XeonBotInc.sendMessage(m.chat, {text: teks_vote, mentions: menvote}, {quoted:m})
+            Bellah.sendMessage(m.chat, {text: teks_vote, mentions: menvote}, {quoted:m})
 	    }
              break
                 case 'downvote': {
@@ -2758,7 +2758,7 @@ Please Type Below
 *${prefix}upvote* - to upvote
 *${prefix}downvote* -  to downvote
 *${prefix}deletevote* - to delete vote`
-            XeonBotInc.sendMessage(m.chat, {text: teks_vote, mentions: menvote}, {quoted:m})
+            Bellah.sendMessage(m.chat, {text: teks_vote, mentions: menvote}, {quoted:m})
 	}
             break
                  
@@ -2786,9 +2786,9 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 *${prefix}deletevote* - to delete votes
 
 
-©${XeonBotInc.user.id}
+©${Bellah.user.id}
 `
-XeonBotInc.sendTextWithMentions(m.chat, teks_vote, m)
+Bellah.sendTextWithMentions(m.chat, teks_vote, m)
 break
 		case 'deletevote': case'delvote': case 'hapusvote': {
             if (!m.isGroup) return XeonStickGroup()
@@ -2803,7 +2803,7 @@ break
                 if (!m.isGroup) return XeonStickGroup()
                 if (!isAdmins && !isGroupOwner && !XeonTheCreator) return XeonStickAdmin()
                 if (!isBotAdmins) return XeonStickBotAdmin()
-                await XeonBotInc.groupRevokeInvite(m.chat)
+                await Bellah.groupRevokeInvite(m.chat)
                     .then(res => {
                         replygcxeon(`Reset Success`)
                     })
@@ -2853,7 +2853,7 @@ ${cpus[0].model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type =>
 _CPU Core(s) Usage (${cpus.length} Core CPU)_
 ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}`).join('\n\n')}` : ''}
                 `.trim()
-	XeonBotInc.relayMessage(m.chat,  {
+	Bellah.relayMessage(m.chat,  {
         requestPaymentMessage: {
           currencyCodeIso4217: 'INR',
           amount1000: 999999999,
@@ -2871,7 +2871,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 	case 'repo': case 'script': {
   try {
     const [, username, repoName] = botscript.match(/github\.com\/([^/]+)\/([^/]+)/)
-    const response = await axios.get(`https://github.com/Tennor-modz/Bellah-Xmd${username}/${repoName}`)
+    const response = await axios.get(`https://github.com/Finjohns/Lorein-Xmd${username}/${repoName}`)
     if (response.status === 200) {
       const repoData = response.data
       const formattedInfo = `
@@ -2883,7 +2883,7 @@ ${themeemoji} Forks: ${repoData.forks_count}
 ${themeemoji} URL: ${repoData.html_url}
      
  `.trim()
-      await XeonBotInc.relayMessage(m.chat,  {
+      await Bellah.relayMessage(m.chat,  {
         requestPaymentMessage: {
           currencyCodeIso4217: 'INR',
           amount1000: 69000,
@@ -2901,7 +2901,7 @@ ${themeemoji} URL: ${repoData.html_url}
     }
   } catch (error) {
     console.error(error)
-    await replygcxeon(`https://github.com/Tennor-modz/Bellah-Xmd
+    await replygcxeon(`https://github.com/Finjohns/Lorein-Xmd
 
 > Star,fork, deploy 😊`)
   }
@@ -2910,14 +2910,14 @@ break
             case 'buypremium':
             case 'premiumuser': {
                 let teks = `👋\nWant to Buy Premium?Just chat with the owner😉`
-                await XeonBotInc.sendMessage(m.chat, {
+                await Bellah.sendMessage(m.chat, {
                     text: teks,
                     contextInfo: {
                         externalAdReply: {
                             showAdAttribution: true,
                             title: botname,
                             body: ownername,
-                            thumbnailUrl: 'https://telegra.ph/file/6a9ae040c7bcfa5bd0656.jpg',
+                            thumbnailUrl: '',
                             sourceUrl: wagc,
                             mediaType: 1,
                             renderLargerThumbnail: true
@@ -2955,7 +2955,7 @@ break
                         stdout,
                         stderr
                     } = o
-                    if (stdout.trim()) XeonBotInc.sendMessage(m.chat, {
+                    if (stdout.trim()) Bellah.sendMessage(m.chat, {
                         text: stdout,
                         contextInfo: {
                             externalAdReply: {
@@ -2971,7 +2971,7 @@ break
                     }, {
                         quoted: m
                     })
-                    if (stderr.trim()) XeonBotInc.sendMessage(m.chat, {
+                    if (stderr.trim()) Bellah.sendMessage(m.chat, {
                         text: stderr,
                         contextInfo: {
                             externalAdReply: {
