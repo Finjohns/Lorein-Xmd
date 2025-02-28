@@ -6699,17 +6699,17 @@ break
             let a = db.data.users[sender]
             let me = m.sender
             let xmenu_oh = `
-*HOLLA👋.* WELCOME 😁 *BELLAH* ʙᴏᴛ ᴍᴅ
+*HOLLA👋.* WELCOME 😁 *LOREIN* ʙᴏᴛ ᴍᴅ
 
-BELLAH XMD BY GIDDY TENNOR 
+LOREIN XMD BY JINWIIL ONGINJO 
 MENU IS HERE 
 
-◉ ᴄʀᴇᴀᴛᴏʀ: Giddy Tennor 
-◉ Botname :Bellah Xmd
+◉ ᴄʀᴇᴀᴛᴏʀ: Jinwiil Onginjo 
+◉ Botname :Lorein Xmd
 ◉ ᴘʀᴇғɪx: *[ ${xprefix} ]*
 ◉ Plugins:282 
 ◉ Platforms:Panel 
-> BELLAH XMD VERSION 1.0.0
+> LOREIN XMD VERSION 1.0.0
 
 ┌ ◦   Here are the bot Menu futures: 
 *.allmenu*
@@ -6719,23 +6719,23 @@ This bot is Still under strict
 maintenance/development
 *FOLLOW MY GROUP FOR UPDATES👇*
 ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
-©𝙂𝙄𝘿𝘿𝙔𝙏𝙀𝙉𝙉𝙊𝙍`
+© 𝐉𝚰𝚴𝐖𝚰𝚰𝐋𝚯𝚴𝐆𝚰𝚴𝐉𝚯 🕷️🕸️`
 if (typemenu === 'v1') {
-                    XeonBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./XMEDIA/theme/bellah.jpg'),
+                    Bellah-Xmd.sendMessage(m.chat, {
+                        image: fs.readFileSync('https://files.catbox.moe/zsoxyf.jpg'),
                         caption: xmenu_oh
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
-                    XeonBotInc.sendMessage(m.chat, {
+                    Bellah.sendMessage(m.chat, {
                         text: xmenu_oh,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
                                 title: botname,
                                 body: ownername,
-                                thumbnail: fs.readFileSync('./XMEDIA/theme/bellah.jpg'),
+                                thumbnail: fs.readFileSync('https://files.catbox.moe/zsoxyf.jpg'),
                                 sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
@@ -6745,14 +6745,14 @@ if (typemenu === 'v1') {
                         quoted: m
                     })
                 }   if (typemenu === 'v3') {
-                    XeonBotInc.sendMessage(m.chat, {
+                    Bellah.sendMessage(m.chat, {
                         video: fs.readFileSync('./XMEDIA/theme/Cheems-bot.mp4'),
                         caption: xmenu_oh
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
-                    XeonBotInc.sendMessage(m.chat, {
+                    Bellah.sendMessage(m.chat, {
                         video: fs.readFileSync('./XMEDIA/theme/Cheems-bot.mp4'),
                         caption: xmenu_oh,
                         gifPlayback: true
@@ -6760,7 +6760,7 @@ if (typemenu === 'v1') {
                         quoted: m
                     })
                 } else if (typemenu === 'v5') {
-                    XeonBotInc.relayMessage(m.chat, {
+                    Bellae.relayMessage(m.chat, {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
@@ -6768,7 +6768,7 @@ if (typemenu === 'v1') {
                         }
                     }, {})
                 } else if (typemenu === 'v6') {
-                    XeonBotInc.relayMessage(m.chat,  {
+                    Bellah.relayMessage(m.chat,  {
                        requestPaymentMessage: {
                           currencyCodeIso4217: 'INR',
                           amount1000: '9999999900',
@@ -6786,7 +6786,7 @@ if (typemenu === 'v1') {
                        }
                     }, {})
                 } else if (typemenu === 'v7') {
-                    XeonBotInc.sendMessage(m.chat, {
+                    Bella.sendMessage(m.chat, {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
@@ -6799,7 +6799,7 @@ if (typemenu === 'v1') {
                                 showAdAttribution: true,
                                 title: botname,
                                 body: ownername,
-                                thumbnail: fs.readFileSync('./XMEDIA/theme/bellah.jpg'),
+                                thumbnail: fs.readFileSync('https://files.catbox.moe/zsoxyf.jpg'),
                                 sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
@@ -6809,7 +6809,7 @@ if (typemenu === 'v1') {
                         quoted: fstatus 
                     })
                 } else if (typemenu === 'v8') {
-                	XeonBotInc.sendMessage(m.chat, {
+                	Bellah.sendMessage(m.chat, {
       video: fs.readFileSync('./XMEDIA/theme/Cheems-bot.mp4'),
       gifPlayback: true,
       caption: xmenu_oh,
@@ -6832,21 +6832,21 @@ break
             case 'allmenu': {
 let xmenu_oh = `${readmore}\n\n${allmenu(prefix, hituet)}`
 if (typemenu === 'v1') {
-                    XeonBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./XMEDIA/theme/bellah.jpg'),
+                    Bellah.sendMessage(m.chat, {
+                        image: fs.readFileSync(''),
                         caption: xmenu_oh
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
-                    XeonBotInc.sendMessage(m.chat, {
+                  Bellah.sendMessage(m.chat, {
                         text: xmenu_oh,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
                                 title: botname,
                                 body: ownername,
-                                thumbnail: fs.readFileSync('./XMEDIA/theme/bellah.jpg'),
+                                thumbnail: fs.readFileSync(''),
                                 sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
