@@ -169,7 +169,7 @@ const reSize = async(buffer, ukur1, ukur2) => {
    })
 }
 //module
-module.exports = XeonBotInc = async (XeonBotInc, m, chatUpdate, store) => {
+module.exports = Bellah = async (Bellah, m, chatUpdate, store) => {
     try {
         const {
             type,
@@ -189,7 +189,7 @@ module.exports = XeonBotInc = async (XeonBotInc, m, chatUpdate, store) => {
         const args = body.trim().split(/ +/).slice(1)
         const full_args = body.replace(command, '').slice(1).trim()
         const pushname = m.pushName || "No Name"
-        const botNumber = await XeonBotInc.decodeJid(XeonBotInc.user.id)
+        const botNumber = await Bellah.decodeJid(Bellah.user.id)
         const itsMe = m.sender == botNumber ? true : false
         const sender = m.sender
         const text = q = args.join(" ")
@@ -239,32 +239,32 @@ module.exports = XeonBotInc = async (XeonBotInc, m, chatUpdate, store) => {
         const isUser = xeonverifieduser.includes(sender)
         const XeonTheCreator = [botNumber, ...owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const isPremium= XeonTheCreator || checkPremiumUser(m.sender, premium)
-        expiredPremiumCheck(XeonBotInc, m, premium)
+        expiredPremiumCheck(Bellah, m, premium)
         
         //theme sticker reply
         const XeonStickWait = () => {
         let XeonStikRep = fs.readFileSync('./XMEDIA/theme/sticker_reply/wait.webp')
-        XeonBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        Bellah.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
         }
         const XeonStickAdmin = () => {
         let XeonStikRep = fs.readFileSync('./XMEDIA/theme/sticker_reply/admin.webp')
-        XeonBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        Bellah.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
         }
         const XeonStickBotAdmin = () => {
         let XeonStikRep = fs.readFileSync('./XMEDIA/theme/sticker_reply/botadmin.webp')
-        XeonBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        Bellah.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
         }
         const XeonStickOwner = () => {
         let XeonStikRep = fs.readFileSync('./XMEDIA/theme/sticker_reply/owner.webp')
-        XeonBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        Bellah.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
         }
         const XeonStickGroup = () => {
         let XeonStikRep = fs.readFileSync('./XMEDIA/theme/sticker_reply/group.webp')
-        XeonBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        Bellah.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
         }
         const XeonStickPrivate = () => {
         let XeonStikRep = fs.readFileSync('./XMEDIA/theme/sticker_reply/private.webp')
-        XeonBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        Bellah.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
         }
         //premium
         async function replyprem(teks) {
@@ -276,14 +276,14 @@ module.exports = XeonBotInc = async (XeonBotInc, m, chatUpdate, store) => {
     let type2 = getContentType(generate.message)
     if ('contextInfo' in options) generate.message[type2].contextInfo = options?.contextInfo
     if ('contextInfo' in message) generate.message[type2].contextInfo = message?.contextInfo
-    return await XeonBotInc.relayMessage(chatId, generate.message, { messageId: generate.key.id })
+    return await Bellah.relayMessage(chatId, generate.message, { messageId: generate.key.id })
 }
         //reply
         async function replygcxeon(teks) {
             if (typereply === 'v1') {
                 m.reply(teks)
             } else if (typereply === 'v2') {
-                XeonBotInc.sendMessage(m.chat, {
+                Bellah.sendMessage(m.chat, {
                     contextInfo: {
                         externalAdReply: {
                             showAdAttribution: true,
@@ -299,7 +299,7 @@ module.exports = XeonBotInc = async (XeonBotInc, m, chatUpdate, store) => {
                     quoted: m
                 });
             } else if (typereply === 'v3') {
-               XeonBotInc.sendMessage(m.chat, {
+               Bellah.sendMessage(m.chat, {
                   text: teks,
                   contextInfo: {
                      externalAdReply: {
