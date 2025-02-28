@@ -6856,14 +6856,14 @@ if (typemenu === 'v1') {
                         quoted: m
                     })
                 }   if (typemenu === 'v3') {
-                    XeonBotInc.sendMessage(m.chat, {
+                    Bellah.sendMessage(m.chat, {
                         video: fs.readFileSync('./XMEDIA/theme/Cheems-bot.mp4'),
                         caption: xmenu_oh
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
-                    XeonBotInc.sendMessage(m.chat, {
+        Bellah .sendMessage(m.chat, {
                         video: fs.readFileSync('./XMEDIA/theme/Cheems-bot.mp4'),
                         caption: xmenu_oh,
                         gifPlayback: true
@@ -6871,7 +6871,7 @@ if (typemenu === 'v1') {
                         quoted: m
                     })
                 } else if (typemenu === 'v5') {
-                    XeonBotInc.relayMessage(m.chat, {
+                    Bellah.relayMessage(m.chat, {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
@@ -6879,7 +6879,7 @@ if (typemenu === 'v1') {
                         }
                     }, {})
                 } else if (typemenu === 'v6') {
-                    XeonBotInc.relayMessage(m.chat,  {
+                    Bellah Bellah.relayMessage(m.chat,  {
                        requestPaymentMessage: {
                           currencyCodeIso4217: 'INR',
                           amount1000: '9999999900',
@@ -6897,7 +6897,7 @@ if (typemenu === 'v1') {
                        }
                     }, {})
                 } else if (typemenu === 'v7') {
-                    XeonBotInc.sendMessage(m.chat, {
+                    Xk.sendMessage(m.chat, {
                         document: {
                            url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
                         },
@@ -6920,7 +6920,7 @@ if (typemenu === 'v1') {
                         quoted: fstatus 
                     })
                 } else if (typemenu === 'v8') {
-                	XeonBotInc.sendMessage(m.chat, {
+                	Bellah.sendMessage(m.chat, {
       video: fs.readFileSync('./XMEDIA/theme/Cheems-bot.mp4'),
       gifPlayback: true,
       caption: xmenu_oh,
@@ -6943,21 +6943,21 @@ break
             case 'ownermenu': {
 let xmenu_oh = `${readmore}\n\n${ownermenu(prefix, hituet)}`
 if (typemenu === 'v1') {
-                    XeonBotInc.sendMessage(m.chat, {
-                        image: fs.readFileSync('./XMEDIA/theme/bellah.jpg'),
+                    Bellah.sendMessage(m.chat, {
+                        image: fs.readFileSync('https://files.catbox.moe/zsoxyf.jpg'),
                         caption: xmenu_oh
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v2') {
-                    XeonBotInc.sendMessage(m.chat, {
+                Bellah.sendMessage(m.chat, {
                         text: xmenu_oh,
                         contextInfo: {
                             externalAdReply: {
                                 showAdAttribution: true,
                                 title: botname,
                                 body: ownername,
-                                thumbnail: fs.readFileSync('./XMEDIA/theme/bellah.jpg'),
+                                thumbnail: fs.readFileSync('https://files.catbox.moe/zsoxyf.jpg'),
                                 sourceUrl: wagc,
                                 mediaType: 1,
                                 renderLargerThumbnail: true
@@ -6967,14 +6967,14 @@ if (typemenu === 'v1') {
                         quoted: m
                     })
                 }   if (typemenu === 'v3') {
-                    XeonBotInc.sendMessage(m.chat, {
+                    Bellah.sendMessage(m.chat, {
                         video: fs.readFileSync('./XMEDIA/theme/Cheems-bot.mp4'),
                         caption: xmenu_oh
                     }, {
                         quoted: m
                     })
                 } else if (typemenu === 'v4') {
-                    XeonBotInc.sendMessage(m.chat, {
+                    Bellah.sendMessage(m.chat, {
                         video: fs.readFileSync('./XMEDIA/theme/Cheems-bot.mp4'),
                         caption: xmenu_oh,
                         gifPlayback: true
@@ -6982,7 +6982,7 @@ if (typemenu === 'v1') {
                         quoted: m
                     })
                 } else if (typemenu === 'v5') {
-                    XeonBotInc.relayMessage(m.chat, {
+                    Bellah.relayMessage(m.chat, {
                         scheduledCallCreationMessage: {
                             callType: "AUDIO",
                             scheduledTimestampMs: 1200,
@@ -6990,7 +6990,7 @@ if (typemenu === 'v1') {
                         }
                     }, {})
                 } else if (typemenu === 'v6') {
-                    XeonBotInc.relayMessage(m.chat,  {
+                    Bellah.relayMessage(m.chat,  {
                        requestPaymentMessage: {
                           currencyCodeIso4217: 'INR',
                           amount1000: '9999999900',
