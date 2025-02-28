@@ -5417,7 +5417,7 @@ case 'dare':
 ]
               const xeontruth = truth[Math.floor(Math.random() * truth.length)]
               buffertruth = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
-              XeonBotInc.sendMessage(from, { image: buffertruth, caption: '_You choose TRUTH_\n'+ xeontruth }, {quoted:m})
+              Bellah.sendMessage(from, { image: buffertruth, caption: '_You choose TRUTH_\n'+ xeontruth }, {quoted:m})
               break
               case 'cry': case 'kill': case 'hug': case 'pat': case 'lick': 
 case 'kiss': case 'bite': case 'yeet': case 'bully': case 'bonk':
@@ -5427,11 +5427,10 @@ case 'happy': case 'dance': case 'cringe': case 'cuddle': case 'highfive':
 case 'shinobu': case 'handhold': {
 
 axios.get(`https://api.waifu.pics/sfw/${command}`)
-.then(({data}) => {
-XeonBotInc.sendImageAsSticker(from, data.url, m, { packname: global.packname, author: global.author })
+.then(({data}) => { Bellah.sendImageAsSticker(from, data.url, m, { packname: global.packname, author: global.author })
 })
 }
-break
+break; /*
 case 'woof':
 case '8ball':
 case 'goose':
@@ -6244,7 +6243,7 @@ var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await XeonBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
 
 }
-break
+break; */
 case 'telestick': {
 	if (m.isGroup) return XeonStickPrivate()
 		if (args[0] && args[0].match(/(https:\/\/t.me\/addstickers\/)/gi)) {
@@ -6253,11 +6252,11 @@ case 'telestick': {
 		if (m.isGroup && xeonresources.length > 30) {
 			await replygcxeon('Number of stickers more than 30, bot will send it in private chat.')
 			for (let i = 0; i < xeonresources.length; i++) {
-				XeonBotInc.sendMessage(m.sender, { sticker: { url: xeonresources[i].url }})
+				Bellah.sendMessage(m.sender, { sticker: { url: xeonresources[i].url }})
 			}
 		} else {
 			for (let i = 0; i < xeonresources.length; i++) {
-				XeonBotInc.sendMessage(m.chat, { sticker: { url: xeonresources[i].url }})
+				Bellah.sendMessage(m.chat, { sticker: { url: xeonresources[i].url }})
 			}
 		}
 	} else replygcxeon(`Where is the telegram sticker link?\nExample. ${prefix + command} https://t.me/addstickers/FriendlyDeath`)
@@ -6322,7 +6321,7 @@ if (/metalliceffect/.test(command)) link = 'https://photooxy.com/logo-and-text-e
 if (/embroiderytext/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/create-embroidery-text-online-191.html'
 if (/flamingtext/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/realistic-flaming-text-effect-online-197.html'
 let dehe = await photooxy.photoOxy(link, q)
-XeonBotInc.sendMessage(m.chat, { image: { url: dehe }, caption: mess.success}, { quoted: m })
+Bellah.sendMessage(m.chat, { image: { url: dehe }, caption: mess.success}, { quoted: m })
 }
 break
 case 'glitchtext':
@@ -6390,7 +6389,7 @@ if (/freecreate/.test(command)) link = 'https://en.ephoto360.com/free-create-a-3
 if (/galaxystyle/.test(command)) link = 'https://en.ephoto360.com/create-galaxy-style-free-name-logo-438.html'
 if (/lighteffects/.test(command)) link = 'https://en.ephoto360.com/create-light-effects-green-neon-online-429.html'
 let haldwhd = await ephoto(link, q)
-XeonBotInc.sendMessage(m.chat, { image: { url: haldwhd }, caption: `${mess.success}` }, { quoted: m })
+Bellah.sendMessage(m.chat, { image: { url: haldwhd }, caption: `${mess.success}` }, { quoted: m })
 }
 break
 case 'setcmd': {
@@ -6423,7 +6422,7 @@ case 'listcmd': {
 Info: *bold* hash is Locked
 ${Object.entries(global.db.data.sticker).map(([key, value], index) => `${index + 1}. ${value.locked ? `*${key}*` : key} : ${value.text}`).join('\n')}
 `.trim()
-                XeonBotInc.sendText(m.chat, teks, m, { mentions: Object.values(global.db.data.sticker).map(x => x.mentionedJid).reduce((a,b) => [...a, ...b], []) })
+                Bellah.sendText(m.chat, teks, m, { mentions: Object.values(global.db.data.sticker).map(x => x.mentionedJid).reduce((a,b) => [...a, ...b], []) })
             }
             break 
 case 'lockcmd': {
@@ -6440,7 +6439,7 @@ case 'lockcmd': {
 if (!q) return replygcxeon(`Example ${prefix+command} link`)
 await XeonStickWait()
 let krt = await scp2.ssweb(q)
-XeonBotInc.sendMessage(from,{image:krt.result,caption:mess.succes}, {quoted:m})
+Bellah.sendMessage(from,{image:krt.result,caption:mess.succes}, {quoted:m})
 }
 break
 case 'pickupline': {
@@ -6541,7 +6540,7 @@ https://cloud.google.com/translate/docs/languages
     const response = await fetch(endpoint)
     if (response.ok) {
       const imageBuffer = await response.buffer()
-      await XeonBotInc.sendMessage(m.chat, { image: imageBuffer }, {quoted: m})
+      await Bellah.sendMessage(m.chat, { image: imageBuffer }, {quoted: m})
     } else {
       throw '*Image generation failed*';
     }
@@ -6622,7 +6621,7 @@ ${translatedTafsirEnglish.text}`
     replygcxeon(quranSurah)
 
     if (json.data.recitation.full) {
-      XeonBotInc.sendMessage(m.chat, { audio: {url: json.data.recitation.full}, mimetype: 'audio/mp4', ptt: true, fileName: `recitation.mp3`, }, {quoted: m})
+      Bellah.sendMessage(m.chat, { audio: {url: json.data.recitation.full}, mimetype: 'audio/mp4', ptt: true, fileName: `recitation.mp3`, }, {quoted: m})
     }
   } catch (error) {
     replygcxeon(`Error: ${error.message}`)
@@ -6645,7 +6644,7 @@ ${translatedTafsirEnglish.text}`
 ▢ *Extension:* ${ext}
 ▢ *Uploaded:* ${aploud}
 `.trim()
-    XeonBotInc.sendMessage(m.chat, { document : { url : url}, fileName : filename, mimetype: ext }, { quoted : m })
+    Bellah.sendMessage(m.chat, { document : { url : url}, fileName : filename, mimetype: ext }, { quoted : m })
     }
     break
     case 'tagadmin': case 'listadmin': case 'admin':{
@@ -6657,7 +6656,7 @@ ${translatedTafsirEnglish.text}`
 *Group Admins:*
 ${listAdmin}
 `.trim()
-    XeonBotInc.sendMessage(m.chat, {text : text, mentions: [...groupAdmins.map(v => v.id), owner] }, {quoted: m})
+    Bellah.sendMessage(m.chat, {text : text, mentions: [...groupAdmins.map(v => v.id), owner] }, {quoted: m})
 }
 break
 case 'instagram': case 'igvideo': case 'igimage': case 'igvid': case 'igimg': {
@@ -6678,9 +6677,9 @@ case 'instagram': case 'igvideo': case 'igimage': case 'igvid': case 'igimg': {
     const mediaURL = mediaData.url_download
     let cap = `HERE IS THE ${mediaType.toUpperCase()}`
     if (mediaType === 'video') {
-      XeonBotInc.sendMessage(m.chat, {video: {url: mediaURL}, caption: cap}, {quoted: m})
+      Bellah.sendMessage(m.chat, {video: {url: mediaURL}, caption: cap}, {quoted: m})
     } else if (mediaType === 'image') {
-      XeonBotInc.sendMessage(m.chat, { image: {url: mediaURL}, caption: cap}, {quoted: m})
+      Bellah.sendMessage(m.chat, { image: {url: mediaURL}, caption: cap}, {quoted: m})
     }
   }
 }
