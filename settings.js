@@ -15,7 +15,7 @@ global.socialm = "IG: @JINWIILONGINJO" //ur github or insta name
 global.location = "Kenya" //ur location
 
 //new
-global.botname = process.env.BOT_NAME ||'𝗕𝗲𝗹𝗹𝗿𝗼𝗺 𝐗𝐦𝐝' //enter your  bot name here
+global.botname = process.env.BOT_NAME ||'𝐋𝐨𝐫𝐞𝐢𝐧 𝐗𝐦𝐝' //enter your  bot name here
 global.ownernumber = process.env.OWNER_NUMBER ||'254769365617' //ur owner number
 global.ownername = '© JINWIIL' //ur owner name
 global.websitex = "https://whatsapp.com/channel/0029VaxZbeSDTkJwBgUb9u3N" //"https://chat.whatsapp.com/JmsgzJllAAB8zHfQcJXxES"
