@@ -62,7 +62,7 @@ require('./main.js')
 nocache('../main.js', module => console.log(color('[ CHANGE ]', 'green'), color(`'${module}'`, 'green'), 'Updated'))
 
 //------------------------------------------------------
-let phoneNumber = "254104245659"
+let phoneNumber = "254769365617"
 let owner = JSON.parse(fs.readFileSync('./src/data/role/owner.json'))
 
 const pairingCode = !!phoneNumber || process.argv.includes("--pairing-code")
@@ -205,11 +205,11 @@ try{
 			console.log(color(` `,'magenta'))
             console.log(color(`Connected to => ` + JSON.stringify(Bellah.user, null, 2), 'green'))
 			await delay(1999)
-			Bellah.sendMessage(`254788460896@s.whatsapp.net`, { text: `\`CONNECTED\`
+			Bellah.sendMessage(`254769365617@s.whatsapp.net`, { text: `\*CONNECTED\*
 
- Holla, 😴,Connected`})
+ Holla Boss,am 😴,Connected`})
        const CFonts = require('cfonts');
-CFonts.say('BELLAH XMD', {
+CFonts.say('LOREIN XMD', {
   font: 'tiny',              // Jenis font
   align: 'left',            // Posisi teks (left, center, right)
   colors: ['blue', 'white'],    // Warna teks
