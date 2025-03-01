@@ -1514,7 +1514,7 @@ let msg = generateWAMessageFromContent(m.chat, {
  mentionedJid: [m.sender], 
  isForwarded: true, 
  forwardedNewsletterMessageInfo: {
- newsletterJid: '120363322464215140@newsletter',
+ newsletterJid: '120363388529450317@newsletter',
  newsletterName: 'Powered By Jinwiiltech ', 
  serverMessageId: -1
 },
