@@ -1528,7 +1528,7 @@ let msg = generateWAMessageFromContent(m.chat, {
  }),
  header: proto.Message.InteractiveMessage.Header.create({
  title: ``,
- subtitle: "𝐁𝐞𝐥𝐥𝐚𝐡 𝐗𝐦𝐝",
+ subtitle: "𝐋𝐨𝐫𝐞𝐢𝐧 𝐗𝐦𝐝",
  hasMediaAttachment: true,...(await prepareWAMessageMedia({ image: { url: "https://i.ibb.co/Y7WgR07T/95b812c4b31bdd5c.jpg" } }, { upload: Bellah.waUploadToServer }))
  }),
  nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
@@ -1539,7 +1539,7 @@ let msg = generateWAMessageFromContent(m.chat, {
 },
  {
  "name": "cta_url",
- "buttonParamsJson": "{\"display_text\":\"Creator\",\"url\":\"https://wa.me/254756182478\",\"merchant_url\":\"https://wa.me/254756182478\"}"
+ "buttonParamsJson": "{\"display_text\":\"Creator\",\"url\":\"https://wa.me/254769365617\",\"merchant_url\":\"https://wa.me/254769365617\"}"
  },
  ],
  })
@@ -1626,7 +1626,7 @@ let sg2alok = {
                             surface : 99999999,
                             message: 'T O U R L',
                             orderTitle: 'H A L O',
-                            thumbnail: fs.readFileSync('./XMEDIA/theme/bellah.jpg'), 
+                            thumbnail: fs.readFileSync('https://files.catbox.moe/zsoxyf.jpg'), 
                             sellerJid: '0@s.whatsapp.net'
           
                           }
@@ -1793,7 +1793,7 @@ if (!isAdmins && !XeonTheCreator) return reply(mess.admin)
   let firstVideo = searchResults.videos[0];
   let videoUrl = firstVideo.url;
 
-  let songInfo = `*BELLAH_XMD_AUDIO - PLAYER*\n` +
+  let songInfo = `*LOREIN_XMD_AUDIO - PLAYER*\n` +
                  `> 🎵 Title: *${firstVideo.title}*\n` +
                  `> 👀 Views: *${firstVideo.views.toLocaleString()}*\n` +
                  `> ⏳ Duration: *${firstVideo.timestamp}*\n` +
@@ -1888,7 +1888,7 @@ case 'spotifydown': {
         if (!search || search.all.length === 0) return Bellah.sendMessage(m.chat, { text: 'Lagu yang Anda cari tidak ditemukan.' }, { quoted: m });
 
         const video = search.all[0];
-        const detail = `*Bellah Xmd Youtube Audio Play*
+        const detail = `*Lorein Xmd Youtube Audio Play*
 
 *❖ Title* : ${video.title}
 *❖ Views* : ${video.views}
@@ -2140,7 +2140,7 @@ if (/image/g.test(mime)) {
 let media = await Bellah.downloadAndSaveMediaMessage(qmsg)
 await Bellah.updateProfilePicture(m.chat, {url: media})
 await fs.unlinkSync(media)
-m.reply("Group profile photo changed successfully by Bellah Xmd")
+m.reply("Group profile photo changed successfully by Lorein Xmd")
 } else return m.reply('tag/reply foto')}
 break    
       case 'unblock': case 'unban': {
@@ -2546,7 +2546,7 @@ break
  await Bellah.groupParticipantsUpdate(m.chat, [(args[0] === "numBut") ? `${remove}@s.whatsapp.net` : remove], "remove");
  await sleep(3000);
  }
- m.reply(`BELLAH XMD HAS SUCCESSFULLY REMOVED ALL GROUP PARTICIPANTS`);
+ m.reply(`LOREIN XMD HAS SUCCESSFULLY REMOVED ALL GROUP PARTICIPANTS`);
 }
 break  
         case 'tagall':
@@ -2612,14 +2612,14 @@ break
                 if (!isAdmins && !isGroupOwner && !XeonTheCreator) return reply(mess.admin)
                 if (!isBotAdmins) return reply(mess.admin)
                 let response = await Bellah.groupInviteCode(m.chat)
-                Bellah.sendText(m.chat, `👥 *GROUP LINK BY BELLAH XMD*\n📛 *Name :* ${groupMetadata.subject}\n👤 *Owner Grup :* ${groupMetadata.owner !== undefined ? '+'+ groupMetadata.owner.split`@`[0] : 'Not known'}\n🌱 *ID :* ${groupMetadata.id}\n🔗 *Chat Link :* https://chat.whatsapp.com/${response}\n👥 *Member :* ${groupMetadata.participants.length}\n`, m, {
+                Bellah.sendText(m.chat, `👥 *GROUP LINK BY LOREIN XMD*\n📛 *Name :* ${groupMetadata.subject}\n👤 *Owner Grup :* ${groupMetadata.owner !== undefined ? '+'+ groupMetadata.owner.split`@`[0] : 'Not known'}\n🌱 *ID :* ${groupMetadata.id}\n🔗 *Chat Link :* https://chat.whatsapp.com/${response}\n👥 *Member :* ${groupMetadata.participants.length}\n`, m, {
                     detectLink: true
                 })
             break
                 case "repo": {
   try {
     let me = m.sender;
- const response = await axios.get(`https://api.github.com/repos/Tennor-modz/Bellah-Xmd`)
+ const response = await axios.get(`https://api.github.com/repos/Bellah-Xmd`)
     if (response.status === 200) {
       const repoData = response.data
       const repos = `
