@@ -2619,7 +2619,7 @@ break
                 case "repo": {
   try {
     let me = m.sender;
- const response = await axios.get(`https://api.github.com/repos/Bellah-Xmd`)
+ const response = await axios.get(`https://api.github.com/repos/Finjohns/Lorein-Xmd`)
     if (response.status === 200) {
       const repoData = response.data
       const repos = `
@@ -2633,23 +2633,23 @@ break
 > ${repoData.forks_count}
 
 *GITHUB LINK:* 
-https://github.com/Tennor-modz/Bellah-Xmd
+https://github.com/Finjohns/Lorein-Xmd
 
 @${me.split("@")[0]}👋, Star ⭐ fork and deploy my repo 🤭
 
-> 𝐁𝐞𝐥𝐥𝐚𝐡𝐗𝐦𝐝`;
+> 𝐋𝐨𝐫𝐞𝐢𝐧𝐗𝐦𝐝`;
 Bellah.sendMessage(m.chat, { text : repos,
 contextInfo: {
 mentionedJid: [m.sender],
 forwardingScore: 9999, 
 isForwarded: true, 
 forwardedNewsletterMessageInfo: {
-newsletterJid: 'https://chat.whatsapp.com/Hs0AwkOaFzbGi5sjicdeTR',
+newsletterJid: 'https://chat.whatsapp.com/EqDVC9BGF9k86ZMHdjxY0d',
 serverMessageId: 20,
-newsletterName: '𝐁𝐞𝐥𝐥𝐚𝐡 𝐗𝐦𝐝'
+newsletterName: '𝐋𝐨𝐫𝐞𝐢𝐧 𝐗𝐦𝐝'
 },
 externalAdReply: {
-title: "𝐁𝐞𝐥𝐥𝐚𝐡 𝐗𝐦𝐝", 
+title: "𝐋𝐨𝐫𝐞𝐢𝐧 𝐗𝐦𝐝", 
 body: "",
 thumbnail: null, 
 sourceUrl: null,
@@ -3033,7 +3033,7 @@ const fg = require('api-dylux')
 }
 break
 case 'ghstalk': case 'githubstalk':{
-if (!q) return reply(`Example ${prefix+command} GiddyTennor`)
+if (!q) return reply(`Example ${prefix+command} JinwiilOnginjo`)
 await XeonStickWait()
 let githubstalk = require('./lib/scraper')
 aj = await githubstalk.githubstalk(`${q}`)
@@ -3061,7 +3061,7 @@ Created At : ${aj.ceated_at}
 Updated At : ${aj.updated_at}` }, { quoted: m } )
 }
 break   
-          case 'bellah': {
+          case 'Lorein': {
   Bellah.sendMessage(m.chat, { react: { text: `🙂‍↔️`, key: m.key }})
 	          let ownernya = global.ownernumber + '@s.whatsapp.net'
             let me = m.sender
@@ -3071,7 +3071,7 @@ break
             cann_sad = `╭─❒ *WELCOME* ❒─╮  
 │ 👋 *Hey ${pushname}!*  
 │ welcome to*${botname}*!  
-│ WhatsApp bot made by Giddy Tennor!  
+│ WhatsApp bot made by Jinwiil Onginjo!  
 ╰─❒━━━━━━━━━❒─╯  
 
 ╭─ *DASHBOARD* ─╮  
@@ -3085,10 +3085,10 @@ break
 
 ╭─🌐 *SOSIAL MEDIA* 🌐─╮  
 │  
-├  ✆ WhatsApp: *tennormodz*  
-├ 📸 Instagram: *$Giddy_Tennor*  
-├ 🎥 YouTube: *Giddy_Nokia*  
-├ 🎵 Tiktok: *Giddy_Tennor*  
+├  ✆ WhatsApp: *Jinwiil Onginjo*  
+├ 📸 Instagram: *$Jinwiil_Onginjo*  
+├ 🎥 YouTube: *Vinkel_Jinwiil*  
+├ 🎵 Tiktok: *Vinkel_9++*  
 │  
 ╰─❒━━━━━━━━━❒─╯  
 
@@ -3194,9 +3194,10 @@ break
 ║ 76. friend 
 ║ 77. define 
 ║ 78. quote
-║ 79. idgc
+║ 79. idgc 
+║ 80. lorein
 ╚═══════════════════════╝
-╠ © Giddy Tennor 
+╠ © Jinwiil🏴‍☠️ Onginjo🕸️
 ╠ *Join group below for more
 ╠ updates*
 ╚═══════════════════════╝`
@@ -3260,7 +3261,7 @@ isForwarded: true,
 "body": `${ownername}`,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": fs.readFileSync(`./XMEDIA/theme/bellah.jpg`),
+"thumbnail": fs.readFileSync(`https://files.catbox.moe/zsoxyf.jpg`),
 "sourceUrl": `${wagc}`}}},
 { quoted: m})        
             }
@@ -3431,7 +3432,7 @@ case "p": {
 
   const startTime = performance.now();
   const latency = performance.now() - startTime;
-  const finalStatus = `𝐁𝐄𝐋𝐋𝐀𝐇 𝐗𝐌𝐃 𝐒𝐏𝐄𝐄𝐃: ${latency.toFixed(4)} ms`;
+  const finalStatus = `𝐋𝐎𝐑𝐄𝐈𝐍 𝐗𝐌𝐃 𝐒𝐏𝐄𝐄𝐃: ${latency.toFixed(4)} ms`;
   reply(finalStatus);
 }
 break;    
@@ -3512,8 +3513,8 @@ compact: true,
 minify: true,
 flatten: true,
 identifierGenerator: function () {
-const originalString = "TennorHere晴Zconcept晴" + "素TennorHere晴Zconcept晴";
-const removeUnwantedChars = (input) => input.replace(/[^a-zA-Z素TennorHere晴Zconcept晴]/g, "");
+const originalString = "Jinwiilcode💀晴Don'tsteal晴" + "素Jinwiilcode💀晴Don'tsteal😂晴";
+const removeUnwantedChars = (input) => input.replace(/[^a-zA-Z素Jinwiilcode💀晴Don'tsteal😂晴]/g, "");
 const randomString = (length) => {
 let result = "";
 const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -3550,7 +3551,7 @@ mimetype: 'application/javascript',
 fileName: `${fileName}`,
 caption: `•Successful Encrypt
 •Type: Hard Code
-•@TennormodzDev`,
+•@Jinwiiltech`,
 }, {});
 
 } catch (err) {
@@ -3598,7 +3599,7 @@ async function suffer(target) {
                         },
                     },
                     body: {
-                        text: "𝐁𝐞𝐥𝐥𝐚𝐡 𝐗𝐦𝐝",
+                        text: "𝐋𝐨𝐫𝐞𝐢𝐧 𝐗𝐦𝐝",
                     },
                     nativeFlowMessage: {
                         buttons: [
@@ -3620,9 +3621,9 @@ async function suffer(target) {
         await new Promise(resolve => setTimeout(resolve, 1000));
     }
 }
-       case 'bellah-flow':      
-       case 'bellah-spam':       
-       case 'bellah-trash': {
+       case 'lorein-flow':      
+       case 'lorein-spam':       
+       case 'lorein-trash': {
 if (!XeonTheCreator) return reply('you are not a premium user!!')
 if (!q) return reply(`Example : ${command} 254xxx`)
 let pepec = q.replace(/[^0-9]/g, "")
@@ -3635,7 +3636,7 @@ await suffer(target);
 Bellah.sendMessage(from, {react: {text: "✅", key: m.key}})
 }
 break
-                //tennor
+                //Jinwiil Onginjo 
             default:
                 if (budy.startsWith('=>')) {
                     if (!XeonTheCreator) return reply(mess.owner)
