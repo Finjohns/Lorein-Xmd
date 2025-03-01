@@ -6,7 +6,7 @@
 
 
 <p align="center">
-<a href="https://github.com/Tennor-modz"><img title="Author" src="https://i.imgur.com/Q3XajKe.jpeg?style=for-the-badge&logo=github"></a>
+<a href="https://github.com/finjohns"><img title="Author" src="https://i.imgur.com/Q3XajKe.jpeg?style=for-the-badge&logo=github"></a>
 
 
   <p align="center">
@@ -57,7 +57,7 @@
 
 **2. If You Have a Heroku Account**
     <br>
-<p align="center"><a href="https://dashboard.heroku.com/new?template=https%3A%2F%2Fgithub.com%2FTennor-modz%2FBellah-Xmd%3Ftab%3Dreadme-ov-file"> <img src="https://img.shields.io/badge/DEPLOY%20NOW-blue?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://dashboard.heroku.com/new?template=https%3A%2F%2Fgithub.com%2FFinjohns%2FLorein-Xmd%3Ftab%3Dreadme-ov-file"> <img src="https://img.shields.io/badge/DEPLOY%20NOW-blue?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
 
 ***
